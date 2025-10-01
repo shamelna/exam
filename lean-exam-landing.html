@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certified Lean Practitioner Exam | Kaizen Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd559;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-top: 5px solid #ffd559;
+        }
+
+        .hero h1 {
+            color: #1a1a1a;
+            font-size: 36px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            color: #ffd559;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .exam-details {
+            background: #f9f9f9;
+            border-left: 4px solid #ffd559;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+
+        .exam-details h3 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-icon {
+            background: #ffd559;
+            color: #1a1a1a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .detail-text {
+            color: #333;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #666;
+            display: block;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+
+        .instructions {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .instructions h2 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #ffd559;
+            padding-bottom: 10px;
+        }
+
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .instruction-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .instruction-box h4 {
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .instruction-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instruction-box li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .instruction-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd559;
+            font-weight: bold;
+        }
+
+        .exam-container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            min-height: 900px;
+        }
+
+        .exam-container h2 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 2px solid #ffd559;
+            padding-bottom: 15px;
+        }
+
+        .exam-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background: #000;
+            color: #999;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: #ffd559;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffd559;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .important-note strong {
+            color: #1a1a1a;
+        }
+
+        .alert-box {
+            background: #ffe5e5;
+            border: 1px solid #ff6b6b;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #c92a2a;
+        }
+
+        .alert-box strong {
+            color: #c92a2a;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            border-left: 4px solid #ffd559;
+            background: #f9f9f9;
+            margin: 20px 0;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #999;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero {
+                padding: 25px;
+            }
+
+            .instructions, .exam-container {
+                padding: 20px;
+            }
+
+            .detail-grid, .instructions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <div class="logo">KAIZEN ACADEMY</div>
+                <div class="tagline">The Continuous Improvement Academy</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Certified Lean Practitioner Examination</h1>
+            <div class="subtitle">Welcome to Your Final Assessment</div>
+            <p>Congratulations on completing the learning modules and project coaching! This rigorous examination validates your mastery of Lean principles, the Toyota Production System, Value Stream Mapping, and Scientific Problem Solving.</p>
+            
+            <div class="exam-details">
+                <h3>Exam Overview</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Questions</span>
+                            <span class="detail-value">180 Multiple Choice</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">⏱</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Time Limit</span>
+                            <span class="detail-value">2 Hours</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🎯</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Passing Score</span>
+                            <span class="detail-value">70% (126/180)</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🔄</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Attempts Included</span>
+                            <span class="detail-value">2 Attempts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <strong>⚠️ Retake Policy:</strong> You have 2 attempts included with your program. If additional attempts are needed, an exam voucher must be purchased. Wait 48 hours between attempts.
+            </div>
+
+            <div class="important-note">
+                <strong>📌 Important:</strong> Once started, the exam cannot be paused. The 2-hour timer runs continuously. Ensure you have a stable internet connection and quiet environment before beginning.
+            </div>
+        </div>
+
+
+
+        <div class="instructions">
+            <h2>Before You Begin</h2>
+            <div class="instructions-grid">
+                <div class="instruction-box">
+                    <h4>Technical Requirements</h4>
+                    <ul>
+                        <li>Stable internet connection</li>
+                        <li>Modern web browser</li>
+                        <li>Quiet environment</li>
+                        <li>Calculator (if needed)</li>
+                    </ul>
+                </div>
+                <div class="instruction-box">
+                    <h4>Exam Rules</h4>
+                    <ul>
+                        <li>Closed-book exam</li>
+                        <li>No external resources</li>
+                        <li>Complete independently</li>
+                        <li>One correct answer per question</li>
+                    </ul>
+                </div>
+                <div class="instruction-box">
+                    <h4>During the Exam</h4>
+                    <ul>
+                        <li>Navigate forward/backward</li>
+                        <li>Flag questions to review</li>
+                        <li>Answers auto-save</li>
+                        <li>Results provided immediately</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote">
+            "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice."
+            <span class="quote-author">— Brian Herbert</span>
+        </div>
+
+        <div class="exam-container">
+            <h2>Begin Your Certification Exam</h2>
+            <div class="exam-wrapper">
+                <script src="https://www.classmarker.com/public/js/embed-classmarker-1.0.0.js?quiz=qfn68dc5f87b7035&nocache=1" data-quiz="qfn68dc5f87b7035" data-width="700" data-height="800"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>KAIZEN ACADEMY PTY LTD</strong></p>
+        <p>The Continuous Improvement Academy</p>
+        <p style="margin-top: 15px;">
+            <a href="https://academy.continuousimprovement.education">academy.continuousimprovement.education</a> | 
+            <a href="mailto:learn@continuousimprovement.education">learn@continuousimprovement.education</a>
+        </p>
+        <p style="margin-top: 10px;">Phone: (+61) 473-649-237</p>
+        <p style="margin-top: 15px; font-size: 14px;">
+            Empowering People • Driving Excellence • Always Improving
+        </p>
+        <p style="margin-top: 10px; font-size: 12px; color: #666;">
+            © 2024 Kaizen Academy Pty Ltd. All rights reserved.
+        </p>
+    </div>
+</body>
+</html>
