@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IASSC Yellow Belt Mock Exams</title>
+    <title>IASSC Yellow Belt Mock Exams - Kaizen Academy</title>
+    <link rel="icon" type="image/x-icon" href="https://practitioner.kaizenacademy.education/Tcia.ico">
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -15,849 +15,1136 @@
             box-sizing: border-box;
         }
 
-```
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        color: #ffffff;
-        min-height: 100vh;
-    }
-
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .header {
-        text-align: center;
-        padding: 40px 20px;
-        background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-        border-radius: 15px;
-        margin-bottom: 30px;
-        box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
-    }
-
-    .header h1 {
-        color: #1a1a1a;
-        font-size: 2.5em;
-        font-weight: bold;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .header p {
-        color: #2d2d2d;
-        font-size: 1.1em;
-    }
-
-    .exam-selection {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-bottom: 30px;
-    }
-
-    .exam-card {
-        background: #2d2d2d;
-        border: 3px solid #ffd700;
-        border-radius: 12px;
-        padding: 30px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: center;
-    }
-
-    .exam-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
-        border-color: #ffed4e;
-    }
-
-    .exam-card h3 {
-        color: #ffd700;
-        font-size: 1.8em;
-        margin-bottom: 15px;
-    }
-
-    .exam-card p {
-        color: #cccccc;
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
-
-    .exam-card .btn {
-        background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-        color: #1a1a1a;
-        border: none;
-        padding: 12px 30px;
-        font-size: 1em;
-        font-weight: bold;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .exam-card .btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
-    }
-
-    .exam-interface {
-        background: #2d2d2d;
-        border-radius: 12px;
-        padding: 30px;
-        border: 2px solid #ffd700;
-    }
-
-    .exam-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .exam-info {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .info-item {
-        background: #1a1a1a;
-        padding: 10px 20px;
-        border-radius: 20px;
-        border: 2px solid #ffd700;
-    }
-
-    .info-label {
-        color: #ffd700;
-        font-size: 0.85em;
-        font-weight: bold;
-    }
-
-    .info-value {
-        color: #ffffff;
-        font-size: 1.1em;
-        font-weight: bold;
-    }
-
-    .question-container {
-        background: #1a1a1a;
-        border-radius: 10px;
-        padding: 25px;
-        margin-bottom: 25px;
-        border-left: 5px solid #ffd700;
-    }
-
-    .question-number {
-        color: #ffd700;
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-
-    .question-text {
-        color: #ffffff;
-        font-size: 1.1em;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    .options {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .option {
-        background: #2d2d2d;
-        border: 2px solid #444;
-        border-radius: 8px;
-        padding: 15px 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .option:hover {
-        border-color: #ffd700;
-        background: #3a3a3a;
-    }
-
-    .option.selected {
-        background: #ffd700;
-        border-color: #ffd700;
-        color: #1a1a1a;
-    }
-
-    .option.correct {
-        background: #4caf50;
-        border-color: #4caf50;
-        color: white;
-    }
-
-    .option.incorrect {
-        background: #f44336;
-        border-color: #f44336;
-        color: white;
-    }
-
-    .option-letter {
-        font-weight: bold;
-        font-size: 1.2em;
-        min-width: 30px;
-    }
-
-    .option-text {
-        flex: 1;
-    }
-
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .btn {
-        background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-        color: #1a1a1a;
-        border: none;
-        padding: 12px 30px;
-        font-size: 1em;
-        font-weight: bold;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
-    }
-
-    .btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-
-    .btn-secondary {
-        background: #444;
-        color: #ffd700;
-    }
-
-    .btn-secondary:hover {
-        background: #555;
-    }
-
-    .results-container {
-        background: #1a1a1a;
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-    }
-
-    .results-container h2 {
-        color: #ffd700;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-    }
-
-    .score-display {
-        font-size: 4em;
-        font-weight: bold;
-        margin: 30px 0;
-    }
-
-    .score-display.pass {
-        color: #4caf50;
-    }
-
-    .score-display.fail {
-        color: #f44336;
-    }
-
-    .results-details {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-    }
-
-    .result-item {
-        background: #2d2d2d;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #ffd700;
-    }
-
-    .result-label {
-        color: #ffd700;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
-
-    .result-value {
-        color: #ffffff;
-        font-size: 1.8em;
-        font-weight: bold;
-    }
-
-    .progress-bar {
-        width: 100%;
-        height: 10px;
-        background: #444;
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-
-    .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #ffd700 0%, #ffed4e 100%);
-        transition: width 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-        .header h1 {
-            font-size: 1.8em;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
         }
-        
-        .exam-header {
-            flex-direction: column;
-            align-items: flex-start;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        
-        .navigation {
-            flex-direction: column;
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
         }
-        
-        .btn {
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: white;
+            padding: 10px;
+        }
+
+        .header-logo img {
             width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-    }
-</style>
-```
 
+        .header h1 {
+            color: #1a1a1a;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #2d2d2d;
+            font-size: 1.1em;
+        }
+
+        .header .academy-credit {
+            color: #1a1a1a;
+            font-size: 0.95em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .exam-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .exam-card {
+            background: #2d2d2d;
+            border: 3px solid #ffd700;
+            border-radius: 12px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+            border-color: #ffed4e;
+        }
+
+        .exam-card h3 {
+            color: #ffd700;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .exam-card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .exam-card .btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .exam-card .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .exam-interface {
+            background: #2d2d2d;
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid #ffd700;
+        }
+
+        .exam-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .exam-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            background: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 2px solid #ffd700;
+        }
+
+        .info-label {
+            color: #ffd700;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .question-container {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ffd700;
+        }
+
+        .question-number {
+            color: #ffd700;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: #2d2d2d;
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option:hover {
+            border-color: #ffd700;
+            background: #3a3a3a;
+        }
+
+        .option.selected {
+            background: #ffd700;
+            border-color: #ffd700;
+            color: #1a1a1a;
+        }
+
+        .option.correct {
+            background: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+
+        .option.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+
+        .option-letter {
+            font-weight: bold;
+            font-size: 1.2em;
+            min-width: 30px;
+        }
+
+        .option-text {
+            flex: 1;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #444;
+            color: #ffd700;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        .results-container {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .results-container h2 {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .score-display {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+
+        .score-display.pass {
+            color: #4caf50;
+        }
+
+        .score-display.fail {
+            color: #f44336;
+        }
+
+        .results-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .result-item {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+        }
+
+        .result-label {
+            color: #ffd700;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            color: #ffffff;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .phase-breakdown {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px solid #ffd700;
+        }
+
+        .phase-breakdown h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .phase-item {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .phase-name {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .phase-score {
+            display: flex;
+            justify-content: space-between;
+            color: #ffffff;
+            font-size: 0.95em;
+        }
+
+        .detailed-review {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 2px solid #ffd700;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .detailed-review h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: #2d2d2d;
+            padding: 10px 0;
+            z-index: 10;
+        }
+
+        .review-question {
+            background: #1a1a1a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+
+        .review-question.correct {
+            border-left-color: #4caf50;
+        }
+
+        .review-question.incorrect {
+            border-left-color: #f44336;
+        }
+
+        .review-question.unanswered {
+            border-left-color: #ff9800;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-number {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .review-status {
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .review-status.correct {
+            background: #4caf50;
+            color: white;
+        }
+
+        .review-status.incorrect {
+            background: #f44336;
+            color: white;
+        }
+
+        .review-status.unanswered {
+            background: #ff9800;
+            color: white;
+        }
+
+        .review-question-text {
+            color: #ffffff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .review-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .review-answer {
+            padding: 12px 15px;
+            border-radius: 6px;
+            background: #2d2d2d;
+            border: 2px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-answer.user-answer {
+            border-color: #2196f3;
+            background: rgba(33, 150, 243, 0.1);
+        }
+
+        .review-answer.correct-answer {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .review-answer.wrong-answer {
+            border-color: #f44336;
+            background: rgba(244, 67, 54, 0.1);
+        }
+
+        .answer-label {
+            font-weight: bold;
+            color: #ffd700;
+            min-width: 25px;
+        }
+
+        .answer-text {
+            flex: 1;
+            color: #ffffff;
+        }
+
+        .answer-icon {
+            font-size: 1.2em;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 0.9em;
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700 0%, #ffed4e 100%);
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .exam-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
 
-```
-<script type="text/babel">
-    const { useState, useEffect } = React;
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    // Exam data
-    const exams = [
-        {
-            id: 1,
-            title: "Mock Exam 1",
-            description: "60 questions covering all DMAIC phases",
-            notionUrl: "https://www.notion.so/2a4f9314d1f78123bcd7c954eae1e199",
-            questions: [
-                // Define Phase (1-15)
-                { q: "What does DMAIC stand for?", options: ["Define, Measure, Analyze, Implement, Control", "Define, Measure, Analyze, Improve, Control", "Design, Measure, Analyze, Improve, Create", "Define, Monitor, Analyze, Improve, Control"], correct: 1 },
-                { q: "VOC stands for:", options: ["Velocity of Commerce", "Voice of the Company", "Voice of the Customer", "Variation of the Concept"], correct: 2 },
-                { q: "CTQ stands for:", options: ["Critical to Quality", "Customer to Quality", "Cost to Quality", "Control to Quality"], correct: 0 },
-                { q: "Which symbol is used in process mapping to represent a decision point?", options: ["Rectangle", "Diamond", "Circle", "Parallelogram"], correct: 1 },
-                { q: "COPQ stands for:", options: ["Cost of Process Quality", "Cost of Poor Quality", "Control of Process Quality", "Capability of Product Quality"], correct: 1 },
-                { q: "The four categories of COPQ are:", options: ["Internal, External, Prevention, Detection", "Internal, External, Correction, Appraisal", "Internal, External, Prevention, Appraisal", "Prevention, Detection, Correction, Analysis"], correct: 2 },
-                { q: "What are the two main types of customers?", options: ["Primary and Secondary", "Internal and External", "Direct and Indirect", "Local and Global"], correct: 1 },
-                { q: "A high-level process map is created during which DMAIC phase?", options: ["Define", "Measure", "Analyze", "Improve"], correct: 0 },
-                { q: "Which of the following is NOT a component of a Project Charter?", options: ["Problem Statement", "Primary Metric", "Control Charts", "Objective"], correct: 2 },
-                { q: "VOB stands for:", options: ["Voice of the Boss", "Voice of the Business", "Value of the Business", "Vision of the Business"], correct: 1 },
-                { q: "SIPOC stands for:", options: ["Suppliers, Inputs, Process, Outputs, Customers", "Systems, Inputs, Process, Outputs, Controls", "Suppliers, Inventory, Process, Outputs, Customers", "Systems, Inputs, Problems, Outputs, Customers"], correct: 0 },
-                { q: "The Champion's role in a Six Sigma project includes:", options: ["Conducting statistical analysis", "Providing resources and removing roadblocks", "Creating process maps", "Collecting all project data"], correct: 1 },
-                { q: "Tangible COPQ costs typically range from what percent of sales revenue?", options: ["1-3%", "4-10%", "15-20%", "30-40%"], correct: 1 },
-                { q: "Which of the following is an example of External COPQ?", options: ["Inspection costs", "Quarantined inventory", "Warranty costs", "Quality control department costs"], correct: 2 },
-                { q: "The goal of Six Sigma is to focus on:", options: ["The trivial many", "The vital few", "All variables equally", "Only cost reduction"], correct: 1 },
-                
-                // Measure Phase (16-30)
-                { q: "MSA stands for:", options: ["Measurement System Analysis", "Mean Standard Assessment", "Multiple Sample Analysis", "Measure, Stabilize, Analyze"], correct: 0 },
-                { q: "In MSA, what does repeatability refer to?", options: ["Variation between operators", "Variation within the same operator", "Variation over time", "Variation between samples"], correct: 1 },
-                { q: "Reproducibility in MSA refers to:", options: ["Variation within the same operator", "Variation between different operators", "Variation in the equipment", "Variation in the sample"], correct: 1 },
-                { q: "What are the two types of data?", options: ["Good and Bad", "Continuous and Discrete", "Attribute and Variable", "Both B and C"], correct: 3 },
-                { q: "Which type of data is measured on a scale?", options: ["Attribute data", "Discrete data", "Continuous data", "Nominal data"], correct: 2 },
-                { q: "Ordinal data is a type of:", options: ["Continuous data", "Attribute data", "Variable data", "Ratio data"], correct: 1 },
-                { q: "The FMEA tool is used to:", options: ["Map processes", "Identify potential failure modes", "Calculate process capability", "Measure customer satisfaction"], correct: 1 },
-                { q: "In FMEA, RPN stands for:", options: ["Risk Priority Number", "Relative Process Number", "Risk Process Notation", "Repeatability Priority Number"], correct: 0 },
-                { q: "RPN is calculated by multiplying:", options: ["Severity × Occurrence", "Severity × Detection", "Severity × Occurrence × Detection", "Occurrence × Detection"], correct: 2 },
-                { q: "What does X-Y Matrix help identify?", options: ["Customer requirements", "The relationship between inputs (X's) and outputs (Y's)", "Process capability", "Statistical significance"], correct: 1 },
-                { q: "Cp and Cpk are:", options: ["Control chart limits", "Process capability indices", "Types of variation", "Measurement tools"], correct: 1 },
-                { q: "What is the main difference between Cp and Cpk?", options: ["Cp measures short-term capability, Cpk measures long-term", "Cp considers process centering, Cpk does not", "Cpk considers process centering, Cp does not", "There is no difference"], correct: 2 },
-                { q: "A process is considered capable when Cpk is:", options: ["Less than 1.0", "Equal to 1.0", "Greater than or equal to 1.33", "Greater than or equal to 2.0"], correct: 2 },
-                { q: "LSL and USL stand for:", options: ["Lower Sigma Level and Upper Sigma Level", "Lower Specification Limit and Upper Specification Limit", "Lower Sample Limit and Upper Sample Limit", "Lower Standard Limit and Upper Standard Limit"], correct: 1 },
-                { q: "A stable process means:", options: ["The process has no variation", "The process is predictable over time", "The process meets all specifications", "The process has high capability"], correct: 1 },
-                
-                // Analyze Phase (31-45)
-                { q: "The primary goal of the Analyze phase is to:", options: ["Collect data", "Implement solutions", "Identify root causes", "Create control plans"], correct: 2 },
-                { q: "A Fishbone diagram is also known as:", options: ["Pareto chart", "Cause and Effect diagram", "Control chart", "Histogram"], correct: 1 },
-                { q: "The main categories in a Fishbone diagram typically include:", options: ["Cost, Quality, Time, Scope", "Man, Machine, Method, Material, Measurement, Environment", "Define, Measure, Analyze, Improve, Control", "Plan, Do, Check, Act"], correct: 1 },
-                { q: "What does the Pareto Principle state?", options: ["50% of problems come from 50% of causes", "80% of problems come from 20% of causes", "20% of problems come from 80% of causes", "All causes contribute equally"], correct: 1 },
-                { q: "A Pareto chart is:", options: ["A line graph showing trends", "A bar chart with bars arranged in descending order", "A pie chart showing percentages", "A scatter plot showing correlation"], correct: 1 },
-                { q: "The mean is:", options: ["The most frequently occurring value", "The middle value when data is sorted", "The arithmetic average", "The range of values"], correct: 2 },
-                { q: "The median is:", options: ["The arithmetic average", "The middle value when data is sorted", "The most frequently occurring value", "The difference between highest and lowest values"], correct: 1 },
-                { q: "The mode is:", options: ["The arithmetic average", "The middle value", "The most frequently occurring value", "The standard deviation"], correct: 2 },
-                { q: "Standard deviation measures:", options: ["Central tendency", "Variation or spread of data", "The average value", "Process capability"], correct: 1 },
-                { q: "A histogram displays:", options: ["Data over time", "The relationship between two variables", "The frequency distribution of data", "Process stability"], correct: 2 },
-                { q: "A scatter diagram is used to:", options: ["Show data over time", "Show the relationship between two variables", "Show frequency distribution", "Show process control"], correct: 1 },
-                { q: "Correlation measures:", options: ["Causation between variables", "The strength of relationship between two variables", "Process capability", "Time trends"], correct: 1 },
-                { q: "A correlation coefficient of +1 indicates:", options: ["No correlation", "Perfect negative correlation", "Perfect positive correlation", "Weak correlation"], correct: 2 },
-                { q: "Statistical significance is typically determined using:", options: ["P-value", "Mean", "Median", "Mode"], correct: 0 },
-                { q: "A p-value less than 0.05 typically indicates:", options: ["No statistical significance", "Statistical significance", "Perfect correlation", "Process capability"], correct: 1 },
-                
-                // Improve Phase (46-53)
-                { q: "The Improve phase focuses on:", options: ["Identifying root causes", "Collecting baseline data", "Developing and implementing solutions", "Creating measurement systems"], correct: 2 },
-                { q: "Brainstorming is used to:", options: ["Calculate statistics", "Generate ideas and solutions", "Measure process capability", "Control processes"], correct: 1 },
-                { q: "Pilot testing is important because it:", options: ["Eliminates all risk", "Reduces cost of full implementation", "Tests solutions on a small scale before full implementation", "Is required by IASSC"], correct: 2 },
-                { q: "What does Kaizen mean?", options: ["Continuous improvement", "Quality control", "Process mapping", "Statistical analysis"], correct: 0 },
-                { q: "Poka-Yoke means:", options: ["Process improvement", "Mistake proofing", "Quality assurance", "Cost reduction"], correct: 1 },
-                { q: "A solution that eliminates the root cause is:", options: ["Corrective action", "Preventive action", "Detective action", "Reactive action"], correct: 1 },
-                { q: "Cost-benefit analysis is used to:", options: ["Identify root causes", "Evaluate the financial impact of solutions", "Measure process capability", "Create control charts"], correct: 1 },
-                { q: "Quick wins are:", options: ["Long-term strategic improvements", "Simple, fast improvements with immediate impact", "Expensive solutions", "Complex statistical solutions"], correct: 1 },
-                
-                // Control Phase (54-60)
-                { q: "The purpose of the Control phase is to:", options: ["Identify problems", "Analyze root causes", "Sustain improvements", "Collect data"], correct: 2 },
-                { q: "A Control Plan includes:", options: ["Problem statement", "Monitoring methods and reaction plans", "Project charter", "Cost-benefit analysis"], correct: 1 },
-                { q: "Control charts are used to:", options: ["Monitor process stability over time", "Calculate process capability", "Identify root causes", "Brainstorm solutions"], correct: 0 },
-                { q: "How many elements of waste does Lean identify?", options: ["3", "5", "7", "9"], correct: 2 },
-                { q: "The 7 wastes of Lean include:", options: ["Overproduction, Waiting, Transportation, Over-processing, Inventory, Motion, Defects", "Time, Cost, Quality, Scope, Risk, Resources, Communication", "People, Process, Technology, Data, Strategy, Culture, Leadership", "Define, Measure, Analyze, Improve, Control, Sustain, Optimize"], correct: 0 },
-                { q: "The 5S methodology includes:", options: ["Sort, Set in Order, Shine, Standardize, Sustain", "Safety, Security, Systems, Standards, Support", "Start, Stop, Study, Standardize, Sustain", "Scope, Schedule, Staff, Strategy, Success"], correct: 0 },
-                { q: "Visual Factory means:", options: ["A factory that produces visual products", "Making work flow issues quickly noticeable", "Using video surveillance", "Creating process maps"], correct: 1 }
-            ]
-        },
-        {
-            id: 2,
-            title: "Mock Exam 2",
-            description: "60 additional questions for comprehensive practice",
-            notionUrl: "https://www.notion.so/2a4f9314d1f7815fba10f35cc58153e2",
-            questions: [
-                // Define Phase (1-15)
-                { q: "What is the primary purpose of the Define phase?", options: ["To implement solutions", "To understand and define the problem", "To collect data", "To analyze root causes"], correct: 1 },
-                { q: "A Project Charter includes all of the following EXCEPT:", options: ["Problem Statement", "Solution implementation steps", "Primary and Secondary Metrics", "Business Case"], correct: 1 },
-                { q: "Who is responsible for removing roadblocks and providing resources for a Six Sigma project?", options: ["Green Belt", "Black Belt", "Champion", "Yellow Belt"], correct: 2 },
-                { q: "Which tool provides a high-level view of a process including Suppliers, Inputs, Process, Outputs, and Customers?", options: ["FMEA", "SIPOC", "Fishbone Diagram", "Control Chart"], correct: 1 },
-                { q: "The Business Case in a project charter should include:", options: ["Only financial benefits", "The rationale and expected benefits of the project", "Technical specifications", "Control plan details"], correct: 1 },
-                { q: "Which of the following best describes Voice of the Employee (VOE)?", options: ["Employee complaints", "Process-driven needs of employees", "Salary requirements", "Training schedules"], correct: 1 },
-                { q: "Intangible COPQ costs typically range from:", options: ["1-5% of sales", "5-10% of sales", "10-15% of sales", "20-35% of sales"], correct: 3 },
-                { q: "Which is an example of Internal COPQ?", options: ["Warranty claims", "Customer complaints", "Inspection costs", "Product recalls"], correct: 2 },
-                { q: "The relationship between processes creating a Value Chain is comprised of:", options: ["Suppliers and customers only", "Suppliers and receivers of process outputs", "External customers only", "Internal customers only"], correct: 1 },
-                { q: "A rectangle in a process map represents:", options: ["A decision point", "A process step", "The start or end", "An input or output"], correct: 1 },
-                { q: "Y = f(X) means:", options: ["X is a function of Y", "Y (output) is a function of X (inputs)", "Y and X are independent", "X causes Y to fail"], correct: 1 },
-                { q: "The vital few refers to:", options: ["The small number of variables that have the greatest impact", "All variables in a process", "The least important variables", "Variables that are easy to measure"], correct: 0 },
-                { q: "A Master Black Belt's primary role is:", options: ["Working on projects full-time", "Providing technical expertise and mentoring", "Managing the business", "Collecting data"], correct: 1 },
-                { q: "Which of the following is a Prevention cost in COPQ?", options: ["Warranty", "Rework", "Error proofing devices", "Customer complaints"], correct: 2 },
-                { q: "Appraisal costs in COPQ include:", options: ["Training programs", "Product inspection and auditing", "Scrap and rework", "Lost sales"], correct: 1 },
-                
-                // Measure Phase (16-30)
-                { q: "The primary objective of the Measure phase is to:", options: ["Implement solutions", "Understand current process performance", "Identify root causes", "Create control plans"], correct: 1 },
-                { q: "What does Gage R&R assess?", options: ["Process capability", "Measurement system variation", "Root causes", "Customer satisfaction"], correct: 1 },
-                { q: "In a measurement system, if Kappa equals 0, it indicates:", options: ["Excellent measurement system", "Poor measurement system", "Perfect measurement system", "No conclusion can be drawn"], correct: 1 },
-                { q: "Attribute data includes:", options: ["Height, weight, temperature", "Pass/fail, yes/no, good/bad", "Time measurements", "Continuous measurements"], correct: 1 },
-                { q: "Nominal data is characterized by:", options: ["Natural ordering", "Categories without natural ordering", "Measurable differences", "Ratio properties"], correct: 1 },
-                { q: "Interval data:", options: ["Has a true zero point", "Can be ordered and has meaningful differences", "Is the same as nominal data", "Cannot be measured"], correct: 1 },
-                { q: "Ratio data:", options: ["Has no true zero point", "Has a true zero and meaningful ratios", "Is categorical only", "Cannot be ranked"], correct: 1 },
-                { q: "A detailed process map is created during which phase?", options: ["Define", "Measure", "Analyze", "Control"], correct: 1 },
-                { q: "Process Sigma Level estimates:", options: ["The cost of the process", "The capability and defect rate of the process", "The time required for the process", "The number of operators needed"], correct: 1 },
-                { q: "Cp considers:", options: ["Process centering", "Only process spread", "Both centering and spread", "Time variation"], correct: 1 },
-                { q: "If Cpk is less than 1.0, the process is:", options: ["Capable", "Not capable", "Perfect", "Under control"], correct: 1 },
-                { q: "PPM stands for:", options: ["Process Performance Measure", "Parts Per Million", "Process Priority Matrix", "Performance Per Metric"], correct: 1 },
-                { q: "DPU stands for:", options: ["Defects Per Unit", "Data Processing Unit", "Define, Process, Understand", "Days Per Unit"], correct: 0 },
-                { q: "DPMO stands for:", options: ["Defects Per Million Orders", "Defects Per Million Opportunities", "Data Points for Measurement Operations", "Define, Process, Measure, Operate"], correct: 1 },
-                { q: "A process that has special cause variation is:", options: ["Stable", "Unstable", "Capable", "Perfect"], correct: 1 },
-                
-                // Analyze Phase (31-45)
-                { q: "Root cause analysis aims to:", options: ["Find symptoms of problems", "Identify the fundamental reason for a problem", "Implement solutions", "Create control charts"], correct: 1 },
-                { q: "The 5 Whys technique is used to:", options: ["Generate solutions", "Dig deeper into root causes", "Measure process capability", "Create process maps"], correct: 1 },
-                { q: "In hypothesis testing, the null hypothesis typically states:", options: ["There is a significant difference", "There is no significant difference", "The process is capable", "The solution will work"], correct: 1 },
-                { q: "Type I error occurs when:", options: ["We reject a true null hypothesis", "We accept a false null hypothesis", "We collect wrong data", "We measure incorrectly"], correct: 0 },
-                { q: "Type II error occurs when:", options: ["We reject a true null hypothesis", "We fail to reject a false null hypothesis", "We use wrong tools", "We analyze incorrectly"], correct: 1 },
-                { q: "Range is calculated as:", options: ["Maximum value × Minimum value", "Maximum value + Minimum value", "Maximum value - Minimum value", "Maximum value / Minimum value"], correct: 2 },
-                { q: "Variance is:", options: ["The square root of standard deviation", "The square of standard deviation", "The same as range", "The same as mean"], correct: 1 },
-                { q: "A box plot displays:", options: ["Median, quartiles, and outliers", "Only the mean", "Only frequency distribution", "Process over time"], correct: 0 },
-                { q: "Normal distribution is:", options: ["Skewed to the left", "Skewed to the right", "Bell-shaped and symmetrical", "Flat and uniform"], correct: 2 },
-                { q: "The Central Limit Theorem states that:", options: ["All data is normally distributed", "Sample means tend toward normal distribution", "Processes are always stable", "Variation can be eliminated"], correct: 1 },
-                { q: "Stratification is used to:", options: ["Combine all data together", "Separate data into meaningful groups", "Calculate averages", "Create control limits"], correct: 1 },
-                { q: "A correlation coefficient of -0.9 indicates:", options: ["Weak positive correlation", "Strong positive correlation", "Strong negative correlation", "No correlation"], correct: 2 },
-                { q: "Correlation does NOT imply:", options: ["Relationship", "Causation", "Association", "Pattern"], correct: 1 },
-                { q: "ANOVA is used to:", options: ["Compare means of two or more groups", "Calculate standard deviation", "Create process maps", "Measure customer satisfaction"], correct: 0 },
-                { q: "Chi-square test is used for:", options: ["Continuous data analysis", "Categorical data analysis", "Time series analysis", "Process capability"], correct: 1 },
-                
-                // Improve Phase (46-53)
-                { q: "Design of Experiments (DOE) is used to:", options: ["Draw process maps", "Systematically test multiple variables", "Calculate Cpk", "Create control plans"], correct: 1 },
-                { q: "Benchmarking involves:", options: ["Setting lower standards", "Comparing performance to best practices", "Ignoring competitors", "Reducing all costs"], correct: 1 },
-                { q: "Force Field Analysis examines:", options: ["Physical forces only", "Forces driving and restraining change", "Employee strength", "Market forces only"], correct: 1 },
-                { q: "Impact-Effort Matrix is used to:", options: ["Calculate ROI", "Prioritize solutions based on impact and effort", "Measure time", "Analyze data"], correct: 1 },
-                { q: "Change management is important because:", options: ["It eliminates resistance", "It helps people adapt to new processes", "It is required by Six Sigma", "It reduces cost"], correct: 1 },
-                { q: "Training is part of which phase?", options: ["Only Define", "Only Improve", "Multiple phases", "Only Control"], correct: 2 },
-                { q: "Stakeholder analysis identifies:", options: ["Only customers", "All parties affected by the project", "Only employees", "Only suppliers"], correct: 1 },
-                { q: "Standard Work means:", options: ["Documented best practice procedures", "Average performance", "Minimum requirements", "Management directives"], correct: 0 },
-                
-                // Control Phase (54-60)
-                { q: "Control charts monitor:", options: ["Project costs", "Process performance over time", "Customer satisfaction only", "Employee attendance"], correct: 1 },
-                { q: "UCL and LCL in control charts stand for:", options: ["Upper Cost Limit and Lower Cost Limit", "Upper Control Limit and Lower Control Limit", "Ultimate Capability Level and Lowest Capability Level", "Upper Customer Limit and Lower Customer Limit"], correct: 1 },
-                { q: "A process is out of control when:", options: ["Points fall within control limits", "Points fall outside control limits or show non-random patterns", "Mean equals target", "Capability is high"], correct: 1 },
-                { q: "Kanban is a Lean tool used for:", options: ["Statistical analysis", "Inventory and workflow management", "Employee evaluation", "Financial planning"], correct: 1 },
-                { q: "The first 'S' in 5S (Sort/Seiri) means:", options: ["Organize everything", "Separate needed from unneeded items", "Clean the workspace", "Standardize procedures"], correct: 1 },
-                { q: "Standardize is which 'S' in 5S?", options: ["First", "Second", "Third", "Fourth"], correct: 3 },
-                { q: "Response plans in a Control Plan specify:", options: ["How to identify problems", "What actions to take when problems occur", "How to collect data", "Who to blame"], correct: 1 }
-            ]
-        },
-        {
-            id: 3,
-            title: "Mock Exam 3",
-            description: "Final set of 60 questions for complete preparation",
-            notionUrl: "https://www.notion.so/2a4f9314d1f78176bc7eca14db5673cf",
-            questions: [
-                // Define Phase (1-15)
-                { q: "Six Sigma methodology focuses on:", options: ["Increasing variation", "Reducing variation", "Ignoring customer needs", "Maximizing inventory"], correct: 1 },
-                { q: "The primary metric in a Six Sigma project:", options: ["Measures the main output or Y", "Is always financial", "Is optional", "Measures only time"], correct: 0 },
-                { q: "Secondary metrics:", options: ["Are more important than primary metrics", "Measure additional outputs that may be impacted", "Are not necessary", "Only measure cost"], correct: 1 },
-                { q: "Green Belts typically:", options: ["Work full-time on projects", "Work on projects part-time within their functional area", "Only provide training", "Do not work on projects"], correct: 1 },
-                { q: "Black Belts typically complete how many projects per year?", options: ["1-2", "4-6", "10-12", "20+"], correct: 1 },
-                { q: "A Process Owner is responsible for:", options: ["Only cost control", "The ongoing performance of a process", "Only data collection", "Only training"], correct: 1 },
-                { q: "Problem Statement should be:", options: ["Solution-focused", "Problem-focused without assuming solutions", "As long as possible", "Written by one person only"], correct: 1 },
-                { q: "Which of the following is a characteristic of a good Problem Statement?", options: ["Includes the solution", "Is measurable and specific", "Is vague and general", "Blames individuals"], correct: 1 },
-                { q: "Value-added activities:", options: ["Are any activities that keep people busy", "Transform the product in ways customers will pay for", "Should be minimized", "Include all inspection"], correct: 1 },
-                { q: "Non-value-added activities:", options: ["Always add cost without customer value", "Should all be eliminated immediately", "Are necessary waste", "Both A and C"], correct: 3 },
-                { q: "Cycle time is:", options: ["Time to complete one unit", "Total time from start to finish of the entire process", "Only value-added time", "Break time"], correct: 1 },
-                { q: "Takt time represents:", options: ["The rate at which customers demand product", "The fastest possible production rate", "Break time", "Waste time"], correct: 0 },
-                { q: "The Define phase ends when:", options: ["Project is implemented", "Project charter is approved and team is formed", "Data is collected", "Root causes are identified"], correct: 1 },
-                { q: "Archimedes' principle about leverage relates to Six Sigma by:", options: ["Focusing on the vital few for maximum impact", "Using heavy tools", "Working harder, not smarter", "Collecting more data"], correct: 0 },
-                { q: "CTQ requirements should be:", options: ["Vague and flexible", "Specific and measurable", "Impossible to achieve", "Based on internal opinions only"], correct: 1 },
-                
-                // Measure Phase (16-30)
-                { q: "Common cause variation:", options: ["Is unpredictable and sporadic", "Is inherent in the process", "Should be reacted to immediately", "Is always assignable"], correct: 1 },
-                { q: "Special cause variation:", options: ["Is inherent in the process", "Is predictable", "Is assignable to specific factors", "Cannot be identified"], correct: 2 },
-                { q: "A process with only common cause variation is:", options: ["Out of control", "In statistical control", "Incapable", "Defective"], correct: 1 },
-                { q: "Precision in measurement refers to:", options: ["Closeness to the true value", "Consistency of repeated measurements", "Speed of measurement", "Cost of measurement"], correct: 1 },
-                { q: "Accuracy in measurement refers to:", options: ["Consistency of repeated measurements", "Closeness to the true value", "Number of measurements", "Time to measure"], correct: 1 },
-                { q: "Bias in a measurement system indicates:", options: ["Perfect accuracy", "Systematic error", "Random error only", "No error"], correct: 1 },
-                { q: "Linearity in MSA refers to:", options: ["Straight process flow", "Consistency of bias across the measurement range", "Linear regression", "Control chart patterns"], correct: 1 },
-                { q: "Stability in MSA means:", options: ["Consistent measurement over time", "The measurement never changes", "High variation", "Low precision"], correct: 0 },
-                { q: "What percentage of total variation should the measurement system contribute for an acceptable system?", options: ["50%", "30%", "Less than 10%", "100%"], correct: 2 },
-                { q: "Entitlement refers to:", options: ["Customer demands", "Best demonstrated process performance", "Legal requirements", "Minimum standards"], correct: 1 },
-                { q: "Process capability analysis requires:", options: ["Unstable process", "Stable process", "No data", "Subjective opinions"], correct: 1 },
-                { q: "Pp and Ppk differ from Cp and Cpk in that they measure:", options: ["Short-term capability", "Long-term capability", "Customer satisfaction", "Cost"], correct: 1 },
-                { q: "Six Sigma performance level represents:", options: ["1,000 defects per million opportunities", "6,210 defects per million opportunities", "3.4 defects per million opportunities", "Zero defects"], correct: 2 },
-                { q: "The target value in specifications is:", options: ["Always the midpoint", "The ideal or desired value", "Not important", "Always zero"], correct: 1 },
-                { q: "Operational definitions ensure:", options: ["Processes run faster", "Everyone measures the same way", "Cost reduction", "More variation"], correct: 1 },
-                
-                // Analyze Phase (31-45)
-                { q: "Data stratification helps:", options: ["Combine all variations", "Identify patterns by grouping similar data", "Eliminate data", "Increase sample size"], correct: 1 },
-                { q: "Multi-vari analysis examines:", options: ["Single variables only", "Multiple sources of variation", "Only time-based variation", "Only spatial variation"], correct: 1 },
-                { q: "Positional variation refers to:", options: ["Variation over time", "Variation within a single unit or batch", "Variation between operators", "Variation between suppliers"], correct: 1 },
-                { q: "Cyclical variation refers to:", options: ["Variation within units", "Variation over time in a repeating pattern", "Random variation", "No variation"], correct: 1 },
-                { q: "Temporal variation refers to:", options: ["Variation within units", "Variation over time", "Variation between units", "Temperature variation"], correct: 1 },
-                { q: "Confidence interval provides:", options: ["Exact value of the population parameter", "Range where population parameter likely falls", "Number of samples needed", "Control limits"], correct: 1 },
-                { q: "Sample size affects:", options: ["Only cost", "Confidence and precision of estimates", "Nothing", "Only time"], correct: 1 },
-                { q: "Outliers are:", options: ["Always measurement errors", "Data points significantly different from others", "Always special causes", "Should always be removed"], correct: 1 },
-                { q: "A run chart displays:", options: ["Frequency distribution", "Data over time", "Correlation", "Categorical data"], correct: 1 },
-                { q: "In a Pareto analysis, the vital few are:", options: ["All causes", "The most significant contributors", "The least significant contributors", "Random causes"], correct: 1 },
-                { q: "Regression analysis is used to:", options: ["Go backward in time", "Predict one variable based on another", "Count defects", "Create process maps"], correct: 1 },
-                { q: "R-squared in regression indicates:", options: ["Sample size", "Proportion of variation explained by the model", "Number of variables", "Cost savings"], correct: 1 },
-                { q: "Residual analysis examines:", options: ["Leftover materials", "Differences between actual and predicted values", "Employee performance", "Financial residuals"], correct: 1 },
-                { q: "Statistical process control focuses on:", options: ["Firefighting", "Preventing problems through monitoring", "Reacting to every variation", "Eliminating all variation"], correct: 1 },
-                { q: "Data collection should be:", options: ["Random and unplanned", "Planned and systematic", "Optional", "Done only once"], correct: 1 },
-                
-                // Improve Phase (46-53)
-                { q: "Solution selection criteria should include:", options: ["Only cost", "Effectiveness, feasibility, cost, and time", "Only time", "Only ease"], correct: 1 },
-                { q: "Failure Mode Effects Analysis (FMEA) in Improve phase:", options: ["Is not needed", "Evaluates potential failures of proposed solutions", "Only looks at current process", "Replaces pilot testing"], correct: 1 },
-                { q: "Implementation plan should include:", options: ["Only start date", "Tasks, responsibilities, timeline, and resources", "Only who is responsible", "General ideas only"], correct: 1 },
-                { q: "Communication during implementation should be:", options: ["Minimal", "Frequent and clear", "Only to management", "Only at the end"], correct: 1 },
-                { q: "Resistance to change can be reduced by:", options: ["Forcing compliance", "Involving stakeholders and communicating benefits", "Ignoring concerns", "Keeping changes secret"], correct: 1 },
-                { q: "Process documentation should:", options: ["Be as complex as possible", "Clearly describe the improved process", "Be kept secret", "Never be updated"], correct: 1 },
-                { q: "Before and after comparison shows:", options: ["Only current state", "Improvement achieved", "Nothing useful", "Only future state"], correct: 1 },
-                { q: "What is the purpose of a pilot test?", options: ["To eliminate all risk", "To test on small scale before full rollout", "To delay implementation", "To increase cost"], correct: 1 },
-                
-                // Control Phase (54-60)
-                { q: "Statistical Process Control (SPC) uses:", options: ["Only financial data", "Control charts to monitor processes", "Only customer surveys", "Only supplier data"], correct: 1 },
-                { q: "A run of 7 consecutive points on one side of the center line indicates:", options: ["Normal variation", "Possible special cause", "Perfect process", "No concern"], correct: 1 },
-                { q: "Process capability should be:", options: ["Checked only once", "Monitored regularly", "Ignored after Control phase", "Only measured initially"], correct: 1 },
-                { q: "Visual management makes:", options: ["Processes more complex", "Performance and issues visible at a glance", "More paperwork", "Processes slower"], correct: 1 },
-                { q: "Standardized work instructions should be:", options: ["Vague and general", "Clear, detailed, and visual", "Kept from operators", "Written in technical language only"], correct: 1 },
-                { q: "Project closure includes:", options: ["Only financial review", "Documentation, lessons learned, and celebration", "Blaming people for problems", "Hiding problems"], correct: 1 },
-                { q: "Continuous improvement means:", options: ["Making changes constantly without data", "Ongoing effort to improve products, services, or processes", "Stopping after one project", "Only management responsibility"], correct: 1 }
-            ]
-        }
-    ];
-
-    function App() {
-        const [selectedExam, setSelectedExam] = useState(null);
-        const [currentQuestion, setCurrentQuestion] = useState(0);
-        const [answers, setAnswers] = useState({});
-        const [showResults, setShowResults] = useState(false);
-        const [timeRemaining, setTimeRemaining] = useState(3600); // 60 minutes
-
-        useEffect(() => {
-            if (selectedExam && !showResults) {
-                const timer = setInterval(() => {
-                    setTimeRemaining((prev) => {
-                        if (prev <= 1) {
-                            handleSubmit();
-                            return 0;
-                        }
-                        return prev - 1;
-                    });
-                }, 1000);
-                return () => clearInterval(timer);
+        // Exam data
+        const exams = [
+            {
+                id: 1,
+                title: "Mock Exam 1",
+                description: "60 questions covering all DMAIC phases",
+                questions: [
+                    // Define Phase (1-15)
+                    { q: "What does DMAIC stand for?", options: ["Define, Measure, Analyze, Implement, Control", "Define, Measure, Analyze, Improve, Control", "Design, Measure, Analyze, Improve, Create", "Define, Monitor, Analyze, Improve, Control"], correct: 1, phase: "Define" },
+                    { q: "VOC stands for:", options: ["Velocity of Commerce", "Voice of the Company", "Voice of the Customer", "Variation of the Concept"], correct: 2, phase: "Define" },
+                    { q: "CTQ stands for:", options: ["Critical to Quality", "Customer to Quality", "Cost to Quality", "Control to Quality"], correct: 0, phase: "Define" },
+                    { q: "Which symbol is used in process mapping to represent a decision point?", options: ["Rectangle", "Diamond", "Circle", "Parallelogram"], correct: 1, phase: "Define" },
+                    { q: "COPQ stands for:", options: ["Cost of Process Quality", "Cost of Poor Quality", "Control of Process Quality", "Capability of Product Quality"], correct: 1, phase: "Define" },
+                    { q: "The four categories of COPQ are:", options: ["Internal, External, Prevention, Detection", "Internal, External, Correction, Appraisal", "Internal, External, Prevention, Appraisal", "Prevention, Detection, Correction, Analysis"], correct: 2, phase: "Define" },
+                    { q: "What are the two main types of customers?", options: ["Primary and Secondary", "Internal and External", "Direct and Indirect", "Local and Global"], correct: 1, phase: "Define" },
+                    { q: "A high-level process map is created during which DMAIC phase?", options: ["Define", "Measure", "Analyze", "Improve"], correct: 0, phase: "Define" },
+                    { q: "Which of the following is NOT a component of a Project Charter?", options: ["Problem Statement", "Primary Metric", "Control Charts", "Objective"], correct: 2, phase: "Define" },
+                    { q: "VOB stands for:", options: ["Voice of the Boss", "Voice of the Business", "Value of the Business", "Vision of the Business"], correct: 1, phase: "Define" },
+                    { q: "SIPOC stands for:", options: ["Suppliers, Inputs, Process, Outputs, Customers", "Systems, Inputs, Process, Outputs, Controls", "Suppliers, Inventory, Process, Outputs, Customers", "Systems, Inputs, Problems, Outputs, Customers"], correct: 0, phase: "Define" },
+                    { q: "The Champion's role in a Six Sigma project includes:", options: ["Conducting statistical analysis", "Providing resources and removing roadblocks", "Creating process maps", "Collecting all project data"], correct: 1, phase: "Define" },
+                    { q: "Tangible COPQ costs typically range from what percent of sales revenue?", options: ["1-3%", "4-10%", "15-20%", "30-40%"], correct: 1, phase: "Define" },
+                    { q: "Which of the following is an example of External COPQ?", options: ["Inspection costs", "Quarantined inventory", "Warranty costs", "Quality control department costs"], correct: 2, phase: "Define" },
+                    { q: "The goal of Six Sigma is to focus on:", options: ["The trivial many", "The vital few", "All variables equally", "Only cost reduction"], correct: 1, phase: "Define" },
+                    
+                    // Measure Phase (16-30)
+                    { q: "MSA stands for:", options: ["Measurement System Analysis", "Mean Standard Assessment", "Multiple Sample Analysis", "Measure, Stabilize, Analyze"], correct: 0, phase: "Measure" },
+                    { q: "In MSA, what does repeatability refer to?", options: ["Variation between operators", "Variation within the same operator", "Variation over time", "Variation between samples"], correct: 1, phase: "Measure" },
+                    { q: "Reproducibility in MSA refers to:", options: ["Variation within the same operator", "Variation between different operators", "Variation in the equipment", "Variation in the sample"], correct: 1, phase: "Measure" },
+                    { q: "What are the two types of data?", options: ["Good and Bad", "Continuous and Discrete", "Attribute and Variable", "Both B and C"], correct: 3, phase: "Measure" },
+                    { q: "Which type of data is measured on a scale?", options: ["Attribute data", "Discrete data", "Continuous data", "Nominal data"], correct: 2, phase: "Measure" },
+                    { q: "Ordinal data is a type of:", options: ["Continuous data", "Attribute data", "Variable data", "Ratio data"], correct: 1, phase: "Measure" },
+                    { q: "The FMEA tool is used to:", options: ["Map processes", "Identify potential failure modes", "Calculate process capability", "Measure customer satisfaction"], correct: 1, phase: "Measure" },
+                    { q: "In FMEA, RPN stands for:", options: ["Risk Priority Number", "Relative Process Number", "Risk Process Notation", "Repeatability Priority Number"], correct: 0, phase: "Measure" },
+                    { q: "RPN is calculated by multiplying:", options: ["Severity × Occurrence", "Severity × Detection", "Severity × Occurrence × Detection", "Occurrence × Detection"], correct: 2, phase: "Measure" },
+                    { q: "What does X-Y Matrix help identify?", options: ["Customer requirements", "The relationship between inputs (X's) and outputs (Y's)", "Process capability", "Statistical significance"], correct: 1, phase: "Measure" },
+                    { q: "Cp and Cpk are:", options: ["Control chart limits", "Process capability indices", "Types of variation", "Measurement tools"], correct: 1, phase: "Measure" },
+                    { q: "What is the main difference between Cp and Cpk?", options: ["Cp measures short-term capability, Cpk measures long-term", "Cp considers process centering, Cpk does not", "Cpk considers process centering, Cp does not", "There is no difference"], correct: 2, phase: "Measure" },
+                    { q: "A process is considered capable when Cpk is:", options: ["Less than 1.0", "Equal to 1.0", "Greater than or equal to 1.33", "Greater than or equal to 2.0"], correct: 2, phase: "Measure" },
+                    { q: "LSL and USL stand for:", options: ["Lower Sigma Level and Upper Sigma Level", "Lower Specification Limit and Upper Specification Limit", "Lower Sample Limit and Upper Sample Limit", "Lower Standard Limit and Upper Standard Limit"], correct: 1, phase: "Measure" },
+                    { q: "A stable process means:", options: ["The process has no variation", "The process is predictable over time", "The process meets all specifications", "The process has high capability"], correct: 1, phase: "Measure" },
+                    
+                    // Analyze Phase (31-45)
+                    { q: "The primary goal of the Analyze phase is to:", options: ["Collect data", "Implement solutions", "Identify root causes", "Create control plans"], correct: 2, phase: "Analyze" },
+                    { q: "A Fishbone diagram is also known as:", options: ["Pareto chart", "Cause and Effect diagram", "Control chart", "Histogram"], correct: 1, phase: "Analyze" },
+                    { q: "The main categories in a Fishbone diagram typically include:", options: ["Cost, Quality, Time, Scope", "Man, Machine, Method, Material, Measurement, Environment", "Define, Measure, Analyze, Improve, Control", "Plan, Do, Check, Act"], correct: 1, phase: "Analyze" },
+                    { q: "What does the Pareto Principle state?", options: ["50% of problems come from 50% of causes", "80% of problems come from 20% of causes", "20% of problems come from 80% of causes", "All causes contribute equally"], correct: 1, phase: "Analyze" },
+                    { q: "A Pareto chart is:", options: ["A line graph showing trends", "A bar chart with bars arranged in descending order", "A pie chart showing percentages", "A scatter plot showing correlation"], correct: 1, phase: "Analyze" },
+                    { q: "The mean is:", options: ["The most frequently occurring value", "The middle value when data is sorted", "The arithmetic average", "The range of values"], correct: 2, phase: "Analyze" },
+                    { q: "The median is:", options: ["The arithmetic average", "The middle value when data is sorted", "The most frequently occurring value", "The difference between highest and lowest values"], correct: 1, phase: "Analyze" },
+                    { q: "The mode is:", options: ["The arithmetic average", "The middle value", "The most frequently occurring value", "The standard deviation"], correct: 2, phase: "Analyze" },
+                    { q: "Standard deviation measures:", options: ["Central tendency", "Variation or spread of data", "The average value", "Process capability"], correct: 1, phase: "Analyze" },
+                    { q: "A histogram displays:", options: ["Data over time", "The relationship between two variables", "The frequency distribution of data", "Process stability"], correct: 2, phase: "Analyze" },
+                    { q: "A scatter diagram is used to:", options: ["Show data over time", "Show the relationship between two variables", "Show frequency distribution", "Show process control"], correct: 1, phase: "Analyze" },
+                    { q: "Correlation measures:", options: ["Causation between variables", "The strength of relationship between two variables", "Process capability", "Time trends"], correct: 1, phase: "Analyze" },
+                    { q: "A correlation coefficient of +1 indicates:", options: ["No correlation", "Perfect negative correlation", "Perfect positive correlation", "Weak correlation"], correct: 2, phase: "Analyze" },
+                    { q: "Statistical significance is typically determined using:", options: ["P-value", "Mean", "Median", "Mode"], correct: 0, phase: "Analyze" },
+                    { q: "A p-value less than 0.05 typically indicates:", options: ["No statistical significance", "Statistical significance", "Perfect correlation", "Process capability"], correct: 1, phase: "Analyze" },
+                    
+                    // Improve Phase (46-53)
+                    { q: "The Improve phase focuses on:", options: ["Identifying root causes", "Collecting baseline data", "Developing and implementing solutions", "Creating measurement systems"], correct: 2, phase: "Improve" },
+                    { q: "Brainstorming is used to:", options: ["Calculate statistics", "Generate ideas and solutions", "Measure process capability", "Control processes"], correct: 1, phase: "Improve" },
+                    { q: "Pilot testing is important because it:", options: ["Eliminates all risk", "Reduces cost of full implementation", "Tests solutions on a small scale before full implementation", "Is required by IASSC"], correct: 2, phase: "Improve" },
+                    { q: "What does Kaizen mean?", options: ["Continuous improvement", "Quality control", "Process mapping", "Statistical analysis"], correct: 0, phase: "Improve" },
+                    { q: "Poka-Yoke means:", options: ["Process improvement", "Mistake proofing", "Quality assurance", "Cost reduction"], correct: 1, phase: "Improve" },
+                    { q: "A solution that eliminates the root cause is:", options: ["Corrective action", "Preventive action", "Detective action", "Reactive action"], correct: 1, phase: "Improve" },
+                    { q: "Cost-benefit analysis is used to:", options: ["Identify root causes", "Evaluate the financial impact of solutions", "Measure process capability", "Create control charts"], correct: 1, phase: "Improve" },
+                    { q: "Quick wins are:", options: ["Long-term strategic improvements", "Simple, fast improvements with immediate impact", "Expensive solutions", "Complex statistical solutions"], correct: 1, phase: "Improve" },
+                    
+                    // Control Phase (54-60)
+                    { q: "The purpose of the Control phase is to:", options: ["Identify problems", "Analyze root causes", "Sustain improvements", "Collect data"], correct: 2, phase: "Control" },
+                    { q: "A Control Plan includes:", options: ["Problem statement", "Monitoring methods and reaction plans", "Project charter", "Cost-benefit analysis"], correct: 1, phase: "Control" },
+                    { q: "Control charts are used to:", options: ["Monitor process stability over time", "Calculate process capability", "Identify root causes", "Brainstorm solutions"], correct: 0, phase: "Control" },
+                    { q: "How many elements of waste does Lean identify?", options: ["3", "5", "7", "9"], correct: 2, phase: "Control" },
+                    { q: "The 7 wastes of Lean include:", options: ["Overproduction, Waiting, Transportation, Over-processing, Inventory, Motion, Defects", "Time, Cost, Quality, Scope, Risk, Resources, Communication", "People, Process, Technology, Data, Strategy, Culture, Leadership", "Define, Measure, Analyze, Improve, Control, Sustain, Optimize"], correct: 0, phase: "Control" },
+                    { q: "The 5S methodology includes:", options: ["Sort, Set in Order, Shine, Standardize, Sustain", "Safety, Security, Systems, Standards, Support", "Start, Stop, Study, Standardize, Sustain", "Scope, Schedule, Staff, Strategy, Success"], correct: 0, phase: "Control" },
+                    { q: "Visual Factory means:", options: ["A factory that produces visual products", "Making work flow issues quickly noticeable", "Using video surveillance", "Creating process maps"], correct: 1, phase: "Control" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Mock Exam 2",
+                description: "60 additional questions for comprehensive practice",
+                notionUrl: "https://www.notion.so/2a4f9314d1f7815fba10f35cc58153e2",
+                questions: [
+                    // Define Phase (1-15)
+                    { q: "What is the primary purpose of the Define phase?", options: ["To implement solutions", "To understand and define the problem", "To collect data", "To analyze root causes"], correct: 1 },
+                    { q: "A Project Charter includes all of the following EXCEPT:", options: ["Problem Statement", "Solution implementation steps", "Primary and Secondary Metrics", "Business Case"], correct: 1 },
+                    { q: "Who is responsible for removing roadblocks and providing resources for a Six Sigma project?", options: ["Green Belt", "Black Belt", "Champion", "Yellow Belt"], correct: 2 },
+                    { q: "Which tool provides a high-level view of a process including Suppliers, Inputs, Process, Outputs, and Customers?", options: ["FMEA", "SIPOC", "Fishbone Diagram", "Control Chart"], correct: 1 },
+                    { q: "The Business Case in a project charter should include:", options: ["Only financial benefits", "The rationale and expected benefits of the project", "Technical specifications", "Control plan details"], correct: 1 },
+                    { q: "Which of the following best describes Voice of the Employee (VOE)?", options: ["Employee complaints", "Process-driven needs of employees", "Salary requirements", "Training schedules"], correct: 1 },
+                    { q: "Intangible COPQ costs typically range from:", options: ["1-5% of sales", "5-10% of sales", "10-15% of sales", "20-35% of sales"], correct: 3 },
+                    { q: "Which is an example of Internal COPQ?", options: ["Warranty claims", "Customer complaints", "Inspection costs", "Product recalls"], correct: 2 },
+                    { q: "The relationship between processes creating a Value Chain is comprised of:", options: ["Suppliers and customers only", "Suppliers and receivers of process outputs", "External customers only", "Internal customers only"], correct: 1 },
+                    { q: "A rectangle in a process map represents:", options: ["A decision point", "A process step", "The start or end", "An input or output"], correct: 1 },
+                    { q: "Y = f(X) means:", options: ["X is a function of Y", "Y (output) is a function of X (inputs)", "Y and X are independent", "X causes Y to fail"], correct: 1 },
+                    { q: "The vital few refers to:", options: ["The small number of variables that have the greatest impact", "All variables in a process", "The least important variables", "Variables that are easy to measure"], correct: 0 },
+                    { q: "A Master Black Belt's primary role is:", options: ["Working on projects full-time", "Providing technical expertise and mentoring", "Managing the business", "Collecting data"], correct: 1 },
+                    { q: "Which of the following is a Prevention cost in COPQ?", options: ["Warranty", "Rework", "Error proofing devices", "Customer complaints"], correct: 2 },
+                    { q: "Appraisal costs in COPQ include:", options: ["Training programs", "Product inspection and auditing", "Scrap and rework", "Lost sales"], correct: 1 },
+                    
+                    // Measure Phase (16-30)
+                    { q: "The primary objective of the Measure phase is to:", options: ["Implement solutions", "Understand current process performance", "Identify root causes", "Create control plans"], correct: 1 },
+                    { q: "What does Gage R&R assess?", options: ["Process capability", "Measurement system variation", "Root causes", "Customer satisfaction"], correct: 1 },
+                    { q: "In a measurement system, if Kappa equals 0, it indicates:", options: ["Excellent measurement system", "Poor measurement system", "Perfect measurement system", "No conclusion can be drawn"], correct: 1 },
+                    { q: "Attribute data includes:", options: ["Height, weight, temperature", "Pass/fail, yes/no, good/bad", "Time measurements", "Continuous measurements"], correct: 1 },
+                    { q: "Nominal data is characterized by:", options: ["Natural ordering", "Categories without natural ordering", "Measurable differences", "Ratio properties"], correct: 1 },
+                    { q: "Interval data:", options: ["Has a true zero point", "Can be ordered and has meaningful differences", "Is the same as nominal data", "Cannot be measured"], correct: 1 },
+                    { q: "Ratio data:", options: ["Has no true zero point", "Has a true zero and meaningful ratios", "Is categorical only", "Cannot be ranked"], correct: 1 },
+                    { q: "A detailed process map is created during which phase?", options: ["Define", "Measure", "Analyze", "Control"], correct: 1 },
+                    { q: "Process Sigma Level estimates:", options: ["The cost of the process", "The capability and defect rate of the process", "The time required for the process", "The number of operators needed"], correct: 1 },
+                    { q: "Cp considers:", options: ["Process centering", "Only process spread", "Both centering and spread", "Time variation"], correct: 1 },
+                    { q: "If Cpk is less than 1.0, the process is:", options: ["Capable", "Not capable", "Perfect", "Under control"], correct: 1 },
+                    { q: "PPM stands for:", options: ["Process Performance Measure", "Parts Per Million", "Process Priority Matrix", "Performance Per Metric"], correct: 1 },
+                    { q: "DPU stands for:", options: ["Defects Per Unit", "Data Processing Unit", "Define, Process, Understand", "Days Per Unit"], correct: 0 },
+                    { q: "DPMO stands for:", options: ["Defects Per Million Orders", "Defects Per Million Opportunities", "Data Points for Measurement Operations", "Define, Process, Measure, Operate"], correct: 1 },
+                    { q: "A process that has special cause variation is:", options: ["Stable", "Unstable", "Capable", "Perfect"], correct: 1 },
+                    
+                    // Analyze Phase (31-45)
+                    { q: "Root cause analysis aims to:", options: ["Find symptoms of problems", "Identify the fundamental reason for a problem", "Implement solutions", "Create control charts"], correct: 1 },
+                    { q: "The 5 Whys technique is used to:", options: ["Generate solutions", "Dig deeper into root causes", "Measure process capability", "Create process maps"], correct: 1 },
+                    { q: "In hypothesis testing, the null hypothesis typically states:", options: ["There is a significant difference", "There is no significant difference", "The process is capable", "The solution will work"], correct: 1 },
+                    { q: "Type I error occurs when:", options: ["We reject a true null hypothesis", "We accept a false null hypothesis", "We collect wrong data", "We measure incorrectly"], correct: 0 },
+                    { q: "Type II error occurs when:", options: ["We reject a true null hypothesis", "We fail to reject a false null hypothesis", "We use wrong tools", "We analyze incorrectly"], correct: 1 },
+                    { q: "Range is calculated as:", options: ["Maximum value × Minimum value", "Maximum value + Minimum value", "Maximum value - Minimum value", "Maximum value / Minimum value"], correct: 2 },
+                    { q: "Variance is:", options: ["The square root of standard deviation", "The square of standard deviation", "The same as range", "The same as mean"], correct: 1 },
+                    { q: "A box plot displays:", options: ["Median, quartiles, and outliers", "Only the mean", "Only frequency distribution", "Process over time"], correct: 0 },
+                    { q: "Normal distribution is:", options: ["Skewed to the left", "Skewed to the right", "Bell-shaped and symmetrical", "Flat and uniform"], correct: 2 },
+                    { q: "The Central Limit Theorem states that:", options: ["All data is normally distributed", "Sample means tend toward normal distribution", "Processes are always stable", "Variation can be eliminated"], correct: 1 },
+                    { q: "Stratification is used to:", options: ["Combine all data together", "Separate data into meaningful groups", "Calculate averages", "Create control limits"], correct: 1 },
+                    { q: "A correlation coefficient of -0.9 indicates:", options: ["Weak positive correlation", "Strong positive correlation", "Strong negative correlation", "No correlation"], correct: 2 },
+                    { q: "Correlation does NOT imply:", options: ["Relationship", "Causation", "Association", "Pattern"], correct: 1 },
+                    { q: "ANOVA is used to:", options: ["Compare means of two or more groups", "Calculate standard deviation", "Create process maps", "Measure customer satisfaction"], correct: 0 },
+                    { q: "Chi-square test is used for:", options: ["Continuous data analysis", "Categorical data analysis", "Time series analysis", "Process capability"], correct: 1 },
+                    
+                    // Improve Phase (46-53)
+                    { q: "Design of Experiments (DOE) is used to:", options: ["Draw process maps", "Systematically test multiple variables", "Calculate Cpk", "Create control plans"], correct: 1 },
+                    { q: "Benchmarking involves:", options: ["Setting lower standards", "Comparing performance to best practices", "Ignoring competitors", "Reducing all costs"], correct: 1 },
+                    { q: "Force Field Analysis examines:", options: ["Physical forces only", "Forces driving and restraining change", "Employee strength", "Market forces only"], correct: 1 },
+                    { q: "Impact-Effort Matrix is used to:", options: ["Calculate ROI", "Prioritize solutions based on impact and effort", "Measure time", "Analyze data"], correct: 1 },
+                    { q: "Change management is important because:", options: ["It eliminates resistance", "It helps people adapt to new processes", "It is required by Six Sigma", "It reduces cost"], correct: 1 },
+                    { q: "Training is part of which phase?", options: ["Only Define", "Only Improve", "Multiple phases", "Only Control"], correct: 2 },
+                    { q: "Stakeholder analysis identifies:", options: ["Only customers", "All parties affected by the project", "Only employees", "Only suppliers"], correct: 1 },
+                    { q: "Standard Work means:", options: ["Documented best practice procedures", "Average performance", "Minimum requirements", "Management directives"], correct: 0 },
+                    
+                    // Control Phase (54-60)
+                    { q: "Control charts monitor:", options: ["Project costs", "Process performance over time", "Customer satisfaction only", "Employee attendance"], correct: 1 },
+                    { q: "UCL and LCL in control charts stand for:", options: ["Upper Cost Limit and Lower Cost Limit", "Upper Control Limit and Lower Control Limit", "Ultimate Capability Level and Lowest Capability Level", "Upper Customer Limit and Lower Customer Limit"], correct: 1 },
+                    { q: "A process is out of control when:", options: ["Points fall within control limits", "Points fall outside control limits or show non-random patterns", "Mean equals target", "Capability is high"], correct: 1 },
+                    { q: "Kanban is a Lean tool used for:", options: ["Statistical analysis", "Inventory and workflow management", "Employee evaluation", "Financial planning"], correct: 1 },
+                    { q: "The first 'S' in 5S (Sort/Seiri) means:", options: ["Organize everything", "Separate needed from unneeded items", "Clean the workspace", "Standardize procedures"], correct: 1 },
+                    { q: "Standardize is which 'S' in 5S?", options: ["First", "Second", "Third", "Fourth"], correct: 3 },
+                    { q: "Response plans in a Control Plan specify:", options: ["How to identify problems", "What actions to take when problems occur", "How to collect data", "Who to blame"], correct: 1 }
+                ]
+            },
+            {
+                id: 3,
+                title: "Mock Exam 3",
+                description: "Final set of 60 questions for complete preparation",
+                notionUrl: "https://www.notion.so/2a4f9314d1f78176bc7eca14db5673cf",
+                questions: [
+                    // Define Phase (1-15)
+                    { q: "Six Sigma methodology focuses on:", options: ["Increasing variation", "Reducing variation", "Ignoring customer needs", "Maximizing inventory"], correct: 1 },
+                    { q: "The primary metric in a Six Sigma project:", options: ["Measures the main output or Y", "Is always financial", "Is optional", "Measures only time"], correct: 0 },
+                    { q: "Secondary metrics:", options: ["Are more important than primary metrics", "Measure additional outputs that may be impacted", "Are not necessary", "Only measure cost"], correct: 1 },
+                    { q: "Green Belts typically:", options: ["Work full-time on projects", "Work on projects part-time within their functional area", "Only provide training", "Do not work on projects"], correct: 1 },
+                    { q: "Black Belts typically complete how many projects per year?", options: ["1-2", "4-6", "10-12", "20+"], correct: 1 },
+                    { q: "A Process Owner is responsible for:", options: ["Only cost control", "The ongoing performance of a process", "Only data collection", "Only training"], correct: 1 },
+                    { q: "Problem Statement should be:", options: ["Solution-focused", "Problem-focused without assuming solutions", "As long as possible", "Written by one person only"], correct: 1 },
+                    { q: "Which of the following is a characteristic of a good Problem Statement?", options: ["Includes the solution", "Is measurable and specific", "Is vague and general", "Blames individuals"], correct: 1 },
+                    { q: "Value-added activities:", options: ["Are any activities that keep people busy", "Transform the product in ways customers will pay for", "Should be minimized", "Include all inspection"], correct: 1 },
+                    { q: "Non-value-added activities:", options: ["Always add cost without customer value", "Should all be eliminated immediately", "Are necessary waste", "Both A and C"], correct: 3 },
+                    { q: "Cycle time is:", options: ["Time to complete one unit", "Total time from start to finish of the entire process", "Only value-added time", "Break time"], correct: 1 },
+                    { q: "Takt time represents:", options: ["The rate at which customers demand product", "The fastest possible production rate", "Break time", "Waste time"], correct: 0 },
+                    { q: "The Define phase ends when:", options: ["Project is implemented", "Project charter is approved and team is formed", "Data is collected", "Root causes are identified"], correct: 1 },
+                    { q: "Archimedes' principle about leverage relates to Six Sigma by:", options: ["Focusing on the vital few for maximum impact", "Using heavy tools", "Working harder, not smarter", "Collecting more data"], correct: 0 },
+                    { q: "CTQ requirements should be:", options: ["Vague and flexible", "Specific and measurable", "Impossible to achieve", "Based on internal opinions only"], correct: 1 },
+                    
+                    // Measure Phase (16-30)
+                    { q: "Common cause variation:", options: ["Is unpredictable and sporadic", "Is inherent in the process", "Should be reacted to immediately", "Is always assignable"], correct: 1 },
+                    { q: "Special cause variation:", options: ["Is inherent in the process", "Is predictable", "Is assignable to specific factors", "Cannot be identified"], correct: 2 },
+                    { q: "A process with only common cause variation is:", options: ["Out of control", "In statistical control", "Incapable", "Defective"], correct: 1 },
+                    { q: "Precision in measurement refers to:", options: ["Closeness to the true value", "Consistency of repeated measurements", "Speed of measurement", "Cost of measurement"], correct: 1 },
+                    { q: "Accuracy in measurement refers to:", options: ["Consistency of repeated measurements", "Closeness to the true value", "Number of measurements", "Time to measure"], correct: 1 },
+                    { q: "Bias in a measurement system indicates:", options: ["Perfect accuracy", "Systematic error", "Random error only", "No error"], correct: 1 },
+                    { q: "Linearity in MSA refers to:", options: ["Straight process flow", "Consistency of bias across the measurement range", "Linear regression", "Control chart patterns"], correct: 1 },
+                    { q: "Stability in MSA means:", options: ["Consistent measurement over time", "The measurement never changes", "High variation", "Low precision"], correct: 0 },
+                    { q: "What percentage of total variation should the measurement system contribute for an acceptable system?", options: ["50%", "30%", "Less than 10%", "100%"], correct: 2 },
+                    { q: "Entitlement refers to:", options: ["Customer demands", "Best demonstrated process performance", "Legal requirements", "Minimum standards"], correct: 1 },
+                    { q: "Process capability analysis requires:", options: ["Unstable process", "Stable process", "No data", "Subjective opinions"], correct: 1 },
+                    { q: "Pp and Ppk differ from Cp and Cpk in that they measure:", options: ["Short-term capability", "Long-term capability", "Customer satisfaction", "Cost"], correct: 1 },
+                    { q: "Six Sigma performance level represents:", options: ["1,000 defects per million opportunities", "6,210 defects per million opportunities", "3.4 defects per million opportunities", "Zero defects"], correct: 2 },
+                    { q: "The target value in specifications is:", options: ["Always the midpoint", "The ideal or desired value", "Not important", "Always zero"], correct: 1 },
+                    { q: "Operational definitions ensure:", options: ["Processes run faster", "Everyone measures the same way", "Cost reduction", "More variation"], correct: 1 },
+                    
+                    // Analyze Phase (31-45)
+                    { q: "Data stratification helps:", options: ["Combine all variations", "Identify patterns by grouping similar data", "Eliminate data", "Increase sample size"], correct: 1 },
+                    { q: "Multi-vari analysis examines:", options: ["Single variables only", "Multiple sources of variation", "Only time-based variation", "Only spatial variation"], correct: 1 },
+                    { q: "Positional variation refers to:", options: ["Variation over time", "Variation within a single unit or batch", "Variation between operators", "Variation between suppliers"], correct: 1 },
+                    { q: "Cyclical variation refers to:", options: ["Variation within units", "Variation over time in a repeating pattern", "Random variation", "No variation"], correct: 1 },
+                    { q: "Temporal variation refers to:", options: ["Variation within units", "Variation over time", "Variation between units", "Temperature variation"], correct: 1 },
+                    { q: "Confidence interval provides:", options: ["Exact value of the population parameter", "Range where population parameter likely falls", "Number of samples needed", "Control limits"], correct: 1 },
+                    { q: "Sample size affects:", options: ["Only cost", "Confidence and precision of estimates", "Nothing", "Only time"], correct: 1 },
+                    { q: "Outliers are:", options: ["Always measurement errors", "Data points significantly different from others", "Always special causes", "Should always be removed"], correct: 1 },
+                    { q: "A run chart displays:", options: ["Frequency distribution", "Data over time", "Correlation", "Categorical data"], correct: 1 },
+                    { q: "In a Pareto analysis, the vital few are:", options: ["All causes", "The most significant contributors", "The least significant contributors", "Random causes"], correct: 1 },
+                    { q: "Regression analysis is used to:", options: ["Go backward in time", "Predict one variable based on another", "Count defects", "Create process maps"], correct: 1 },
+                    { q: "R-squared in regression indicates:", options: ["Sample size", "Proportion of variation explained by the model", "Number of variables", "Cost savings"], correct: 1 },
+                    { q: "Residual analysis examines:", options: ["Leftover materials", "Differences between actual and predicted values", "Employee performance", "Financial residuals"], correct: 1 },
+                    { q: "Statistical process control focuses on:", options: ["Firefighting", "Preventing problems through monitoring", "Reacting to every variation", "Eliminating all variation"], correct: 1 },
+                    { q: "Data collection should be:", options: ["Random and unplanned", "Planned and systematic", "Optional", "Done only once"], correct: 1 },
+                    
+                    // Improve Phase (46-53)
+                    { q: "Solution selection criteria should include:", options: ["Only cost", "Effectiveness, feasibility, cost, and time", "Only time", "Only ease"], correct: 1 },
+                    { q: "Failure Mode Effects Analysis (FMEA) in Improve phase:", options: ["Is not needed", "Evaluates potential failures of proposed solutions", "Only looks at current process", "Replaces pilot testing"], correct: 1 },
+                    { q: "Implementation plan should include:", options: ["Only start date", "Tasks, responsibilities, timeline, and resources", "Only who is responsible", "General ideas only"], correct: 1 },
+                    { q: "Communication during implementation should be:", options: ["Minimal", "Frequent and clear", "Only to management", "Only at the end"], correct: 1 },
+                    { q: "Resistance to change can be reduced by:", options: ["Forcing compliance", "Involving stakeholders and communicating benefits", "Ignoring concerns", "Keeping changes secret"], correct: 1 },
+                    { q: "Process documentation should:", options: ["Be as complex as possible", "Clearly describe the improved process", "Be kept secret", "Never be updated"], correct: 1 },
+                    { q: "Before and after comparison shows:", options: ["Only current state", "Improvement achieved", "Nothing useful", "Only future state"], correct: 1 },
+                    { q: "What is the purpose of a pilot test?", options: ["To eliminate all risk", "To test on small scale before full rollout", "To delay implementation", "To increase cost"], correct: 1 },
+                    
+                    // Control Phase (54-60)
+                    { q: "Statistical Process Control (SPC) uses:", options: ["Only financial data", "Control charts to monitor processes", "Only customer surveys", "Only supplier data"], correct: 1 },
+                    { q: "A run of 7 consecutive points on one side of the center line indicates:", options: ["Normal variation", "Possible special cause", "Perfect process", "No concern"], correct: 1 },
+                    { q: "Process capability should be:", options: ["Checked only once", "Monitored regularly", "Ignored after Control phase", "Only measured initially"], correct: 1 },
+                    { q: "Visual management makes:", options: ["Processes more complex", "Performance and issues visible at a glance", "More paperwork", "Processes slower"], correct: 1 },
+                    { q: "Standardized work instructions should be:", options: ["Vague and general", "Clear, detailed, and visual", "Kept from operators", "Written in technical language only"], correct: 1 },
+                    { q: "Project closure includes:", options: ["Only financial review", "Documentation, lessons learned, and celebration", "Blaming people for problems", "Hiding problems"], correct: 1 },
+                    { q: "Continuous improvement means:", options: ["Making changes constantly without data", "Ongoing effort to improve products, services, or processes", "Stopping after one project", "Only management responsibility"], correct: 1 }
+                ]
             }
-        }, [selectedExam, showResults]);
+        ];
 
-        const formatTime = (seconds) => {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
-        };
+        function App() {
+            const [selectedExam, setSelectedExam] = useState(null);
+            const [currentQuestion, setCurrentQuestion] = useState(0);
+            const [answers, setAnswers] = useState({});
+            const [showResults, setShowResults] = useState(false);
+            const [timeRemaining, setTimeRemaining] = useState(3600); // 60 minutes
 
-        const handleExamSelect = (exam) => {
-            setSelectedExam(exam);
-            setCurrentQuestion(0);
-            setAnswers({});
-            setShowResults(false);
-            setTimeRemaining(3600);
-        };
-
-        const handleAnswer = (optionIndex) => {
-            setAnswers({
-                ...answers,
-                [currentQuestion]: optionIndex
-            });
-        };
-
-        const handleNext = () => {
-            if (currentQuestion < selectedExam.questions.length - 1) {
-                setCurrentQuestion(currentQuestion + 1);
-            }
-        };
-
-        const handlePrevious = () => {
-            if (currentQuestion > 0) {
-                setCurrentQuestion(currentQuestion - 1);
-            }
-        };
-
-        const handleSubmit = () => {
-            setShowResults(true);
-        };
-
-        const calculateScore = () => {
-            let correct = 0;
-            selectedExam.questions.forEach((q, index) => {
-                if (answers[index] === q.correct) {
-                    correct++;
+            useEffect(() => {
+                if (selectedExam && !showResults) {
+                    const timer = setInterval(() => {
+                        setTimeRemaining((prev) => {
+                            if (prev <= 1) {
+                                handleSubmit();
+                                return 0;
+                            }
+                            return prev - 1;
+                        });
+                    }, 1000);
+                    return () => clearInterval(timer);
                 }
-            });
-            return {
-                correct,
-                total: selectedExam.questions.length,
-                percentage: ((correct / selectedExam.questions.length) * 100).toFixed(1)
+            }, [selectedExam, showResults]);
+
+            const formatTime = (seconds) => {
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
             };
-        };
 
-        const resetExam = () => {
-            setSelectedExam(null);
-            setCurrentQuestion(0);
-            setAnswers({});
-            setShowResults(false);
-            setTimeRemaining(3600);
-        };
+            const handleExamSelect = (exam) => {
+                setSelectedExam(exam);
+                setCurrentQuestion(0);
+                setAnswers({});
+                setShowResults(false);
+                setTimeRemaining(3600);
+            };
 
-        if (!selectedExam) {
-            return (
-                <div className="container">
-                    <div className="header">
-                        <h1>🎯 IASSC Yellow Belt Mock Exams</h1>
-                        <p>Comprehensive practice exams to prepare for your certification</p>
-                    </div>
+            const handleAnswer = (optionIndex) => {
+                setAnswers({
+                    ...answers,
+                    [currentQuestion]: optionIndex
+                });
+            };
 
-                    <div className="exam-selection">
-                        {exams.map(exam => (
-                            <div key={exam.id} className="exam-card">
-                                <h3>{exam.title}</h3>
-                                <p>{exam.description}</p>
-                                <p style={{fontSize: '0.9em', color: '#ffd700', marginBottom: '15px'}}>
-                                    ⏱️ 60 minutes | 📝 60 questions
-                                </p>
-                                <button className="btn" onClick={() => handleExamSelect(exam)}>
-                                    Start Exam
-                                </button>
-                                <a href={exam.notionUrl} target="_blank" rel="noopener noreferrer" 
-                                   style={{display: 'block', marginTop: '15px', color: '#ffd700', textDecoration: 'none'}}>
-                                    📄 View in Notion →
-                                </a>
+            const handleNext = () => {
+                if (currentQuestion < selectedExam.questions.length - 1) {
+                    setCurrentQuestion(currentQuestion + 1);
+                }
+            };
+
+            const handlePrevious = () => {
+                if (currentQuestion > 0) {
+                    setCurrentQuestion(currentQuestion - 1);
+                }
+            };
+
+            const handleSubmit = () => {
+                setShowResults(true);
+            };
+
+            const calculateScore = () => {
+                let correct = 0;
+                const phaseScores = {
+                    Define: { correct: 0, total: 0 },
+                    Measure: { correct: 0, total: 0 },
+                    Analyze: { correct: 0, total: 0 },
+                    Improve: { correct: 0, total: 0 },
+                    Control: { correct: 0, total: 0 }
+                };
+                
+                selectedExam.questions.forEach((q, index) => {
+                    if (answers[index] === q.correct) {
+                        correct++;
+                        if (q.phase) phaseScores[q.phase].correct++;
+                    }
+                    if (q.phase) phaseScores[q.phase].total++;
+                });
+                
+                return {
+                    correct,
+                    total: selectedExam.questions.length,
+                    percentage: ((correct / selectedExam.questions.length) * 100).toFixed(1),
+                    phaseScores
+                };
+            };
+
+            const resetExam = () => {
+                setSelectedExam(null);
+                setCurrentQuestion(0);
+                setAnswers({});
+                setShowResults(false);
+                setTimeRemaining(3600);
+            };
+
+            if (!selectedExam) {
+                return (
+                    <div className="container">
+                        <div className="header">
+                            <div className="header-logo">
+                                <img src="http://practitioner.kaizenacademy.education/logo_round.png" alt="Kaizen Academy Logo" />
                             </div>
-                        ))}
-                    </div>
-                </div>
-            );
-        }
-
-        if (showResults) {
-            const score = calculateScore();
-            const isPassing = score.percentage >= 70;
-
-            return (
-                <div className="container">
-                    <div className="header">
-                        <h1>Exam Results</h1>
-                    </div>
-
-                    <div className="exam-interface">
-                        <div className="results-container">
-                            <h2>{selectedExam.title} - Results</h2>
-                            
-                            <div className={`score-display ${isPassing ? 'pass' : 'fail'}`}>
-                                {score.percentage}%
-                            </div>
-
-                            <h3 style={{color: isPassing ? '#4caf50' : '#f44336', marginBottom: '30px'}}>
-                                {isPassing ? '🎉 Congratulations! You Passed!' : '📚 Keep Practicing!'}
-                            </h3>
-
-                            <div className="results-details">
-                                <div className="result-item">
-                                    <div className="result-label">Correct Answers</div>
-                                    <div className="result-value" style={{color: '#4caf50'}}>
-                                        {score.correct}
-                                    </div>
-                                </div>
-                                <div className="result-item">
-                                    <div className="result-label">Incorrect Answers</div>
-                                    <div className="result-value" style={{color: '#f44336'}}>
-                                        {score.total - score.correct}
-                                    </div>
-                                </div>
-                                <div className="result-item">
-                                    <div className="result-label">Total Questions</div>
-                                    <div className="result-value">{score.total}</div>
-                                </div>
-                            </div>
-
-                            <div className="navigation">
-                                <button className="btn btn-secondary" onClick={resetExam}>
-                                    Back to Exam Selection
-                                </button>
-                                <button className="btn" onClick={() => {
-                                    setShowResults(false);
-                                    setCurrentQuestion(0);
-                                    setAnswers({});
-                                    setTimeRemaining(3600);
-                                }}>
-                                    Retake Exam
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
-
-        const progress = ((currentQuestion + 1) / selectedExam.questions.length) * 100;
-        const question = selectedExam.questions[currentQuestion];
-        const userAnswer = answers[currentQuestion];
-
-        return (
-            <div className="container">
-                <div className="header">
-                    <h1>{selectedExam.title}</h1>
-                </div>
-
-                <div className="exam-interface">
-                    <div className="exam-header">
-                        <div className="exam-info">
-                            <div className="info-item">
-                                <div className="info-label">Question</div>
-                                <div className="info-value">
-                                    {currentQuestion + 1} / {selectedExam.questions.length}
-                                </div>
-                            </div>
-                            <div className="info-item">
-                                <div className="info-label">Time Remaining</div>
-                                <div className="info-value" style={{color: timeRemaining < 300 ? '#f44336' : '#ffd700'}}>
-                                    {formatTime(timeRemaining)}
-                                </div>
-                            </div>
-                            <div className="info-item">
-                                <div className="info-label">Answered</div>
-                                <div className="info-value">
-                                    {Object.keys(answers).length} / {selectedExam.questions.length}
-                                </div>
-                            </div>
-                        </div>
-                        <button className="btn btn-secondary" onClick={resetExam}>
-                            Exit Exam
-                        </button>
-                    </div>
-
-                    <div className="progress-bar">
-                        <div className="progress-fill" style={{width: `${progress}%`}}></div>
-                    </div>
-
-                    <div className="question-container">
-                        <div className="question-number">
-                            Question {currentQuestion + 1}
-                        </div>
-                        <div className="question-text">
-                            {question.q}
+                            <h1>IASSC Yellow Belt Mock Exams</h1>
+                            <p>Comprehensive practice exams for certification preparation</p>
+                            <p className="academy-credit">By Kaizen Academy Australia</p>
                         </div>
 
-                        <div className="options">
-                            {question.options.map((option, index) => (
-                                <div
-                                    key={index}
-                                    className={`option ${userAnswer === index ? 'selected' : ''}`}
-                                    onClick={() => handleAnswer(index)}
-                                >
-                                    <div className="option-letter">
-                                        {String.fromCharCode(65 + index)}.
-                                    </div>
-                                    <div className="option-text">{option}</div>
+                        <div className="exam-selection">
+                            {exams.map(exam => (
+                                <div key={exam.id} className="exam-card">
+                                    <h3>{exam.title}</h3>
+                                    <p>{exam.description}</p>
+                                    <p style={{fontSize: '0.9em', color: '#ffd700', marginBottom: '15px'}}>
+                                        ⏱️ 60 minutes | 📝 60 questions
+                                    </p>
+                                    <button className="btn" onClick={() => handleExamSelect(exam)}>
+                                        Start Exam
+                                    </button>
+                                    
                                 </div>
                             ))}
                         </div>
                     </div>
+                );
+            }
 
-                    <div className="navigation">
-                        <button 
-                            className="btn btn-secondary" 
-                            onClick={handlePrevious}
-                            disabled={currentQuestion === 0}
-                        >
-                            ← Previous
-                        </button>
-                        
-                        {currentQuestion === selectedExam.questions.length - 1 ? (
-                            <button 
-                                className="btn" 
-                                onClick={handleSubmit}
-                                style={{background: 'linear-gradient(135deg, #4caf50 0%, #66bb6a 100%)'}}
-                            >
-                                Submit Exam
+            if (showResults) {
+                const score = calculateScore();
+                const isPassing = score.percentage >= 70;
+
+                return (
+                    <div className="container">
+                        <div className="header">
+                            <h1>Exam Results</h1>
+                        </div>
+
+                        <div className="exam-interface">
+                            <div className="results-container">
+                                <h2>{selectedExam.title} - Results</h2>
+                                
+                                <div className={`score-display ${isPassing ? 'pass' : 'fail'}`}>
+                                    {score.percentage}%
+                                </div>
+
+                                <h3 style={{color: isPassing ? '#4caf50' : '#f44336', marginBottom: '30px'}}>
+                                    {isPassing ? '🎉 Congratulations! You Passed!' : '📚 Keep Practicing!'}
+                                </h3>
+
+                                <div className="results-details">
+                                    <div className="result-item">
+                                        <div className="result-label">Correct Answers</div>
+                                        <div className="result-value" style={{color: '#4caf50'}}>
+                                            {score.correct}
+                                        </div>
+                                    </div>
+                                    <div className="result-item">
+                                        <div className="result-label">Incorrect Answers</div>
+                                        <div className="result-value" style={{color: '#f44336'}}>
+                                            {score.total - score.correct}
+                                        </div>
+                                    </div>
+                                    <div className="result-item">
+                                        <div className="result-label">Total Questions</div>
+                                        <div className="result-value">{score.total}</div>
+                                    </div>
+                                </div>
+
+                                <div className="phase-breakdown">
+                                    <h3>📊 Performance by DMAIC Phase</h3>
+                                    {Object.entries(score.phaseScores).map(([phase, scores]) => (
+                                        <div key={phase} className="phase-item">
+                                            <div className="phase-name">{phase} Phase</div>
+                                            <div className="phase-score">
+                                                <span>{scores.correct} / {scores.total} correct</span>
+                                                <span style={{color: scores.correct / scores.total >= 0.7 ? '#4caf50' : '#f44336'}}>
+                                                    {((scores.correct / scores.total) * 100).toFixed(1)}%
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="detailed-review">
+                                    <h3>📝 Detailed Question Review</h3>
+                                    <div className="legend">
+                                        <div className="legend-item">
+                                            <div className="legend-box" style={{background: '#4caf50'}}></div>
+                                            <span>Correct</span>
+                                        </div>
+                                        <div className="legend-item">
+                                            <div className="legend-box" style={{background: '#f44336'}}></div>
+                                            <span>Incorrect</span>
+                                        </div>
+                                        <div className="legend-item">
+                                            <div className="legend-box" style={{background: '#ff9800'}}></div>
+                                            <span>Unanswered</span>
+                                        </div>
+                                    </div>
+                                    {selectedExam.questions.map((q, index) => {
+                                        const userAnswer = answers[index];
+                                        const isCorrect = userAnswer === q.correct;
+                                        const isUnanswered = userAnswer === undefined;
+                                        const status = isUnanswered ? 'unanswered' : (isCorrect ? 'correct' : 'incorrect');
+                                        
+                                        return (
+                                            <div key={index} className={`review-question ${status}`}>
+                                                <div className="review-header">
+                                                    <span className="review-number">Q{index + 1} - {q.phase} Phase</span>
+                                                    <span className={`review-status ${status}`}>
+                                                        {isUnanswered ? '⚠️ Unanswered' : (isCorrect ? '✓ Correct' : '✗ Incorrect')}
+                                                    </span>
+                                                </div>
+                                                <div className="review-question-text">{q.q}</div>
+                                                <div className="review-answers">
+                                                    {q.options.map((option, optIndex) => {
+                                                        const isUserAnswer = userAnswer === optIndex;
+                                                        const isCorrectAnswer = q.correct === optIndex;
+                                                        let className = 'review-answer';
+                                                        if (isCorrectAnswer) className += ' correct-answer';
+                                                        if (isUserAnswer && !isCorrect) className += ' wrong-answer';
+                                                        if (isUserAnswer) className += ' user-answer';
+                                                        
+                                                        return (
+                                                            <div key={optIndex} className={className}>
+                                                                <span className="answer-label">{String.fromCharCode(65 + optIndex)}.</span>
+                                                                <span className="answer-text">{option}</span>
+                                                                {isCorrectAnswer && <span className="answer-icon">✓</span>}
+                                                                {isUserAnswer && !isCorrect && <span className="answer-icon">✗</span>}
+                                                                {isUserAnswer && <span style={{color: '#2196f3', fontSize: '0.85em', marginLeft: 'auto'}}>(Your answer)</span>}
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+
+                                <div className="navigation">
+                                    <button className="btn btn-secondary" onClick={resetExam}>
+                                        Back to Exam Selection
+                                    </button>
+                                    <button className="btn" onClick={() => {
+                                        setShowResults(false);
+                                        setCurrentQuestion(0);
+                                        setAnswers({});
+                                        setTimeRemaining(3600);
+                                    }}>
+                                        Retake Exam
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            const progress = ((currentQuestion + 1) / selectedExam.questions.length) * 100;
+            const question = selectedExam.questions[currentQuestion];
+            const userAnswer = answers[currentQuestion];
+
+            return (
+                <div className="container">
+                    <div className="header">
+                        <h1>{selectedExam.title}</h1>
+                    </div>
+
+                    <div className="exam-interface">
+                        <div className="exam-header">
+                            <div className="exam-info">
+                                <div className="info-item">
+                                    <div className="info-label">Question</div>
+                                    <div className="info-value">
+                                        {currentQuestion + 1} / {selectedExam.questions.length}
+                                    </div>
+                                </div>
+                                <div className="info-item">
+                                    <div className="info-label">Time Remaining</div>
+                                    <div className="info-value" style={{color: timeRemaining < 300 ? '#f44336' : '#ffd700'}}>
+                                        {formatTime(timeRemaining)}
+                                    </div>
+                                </div>
+                                <div className="info-item">
+                                    <div className="info-label">Answered</div>
+                                    <div className="info-value">
+                                        {Object.keys(answers).length} / {selectedExam.questions.length}
+                                    </div>
+                                </div>
+                            </div>
+                            <button className="btn btn-secondary" onClick={resetExam}>
+                                Exit Exam
                             </button>
-                        ) : (
+                        </div>
+
+                        <div className="progress-bar">
+                            <div className="progress-fill" style={{width: `${progress}%`}}></div>
+                        </div>
+
+                        <div className="question-container">
+                            <div className="question-number">
+                                Question {currentQuestion + 1}
+                            </div>
+                            <div className="question-text">
+                                {question.q}
+                            </div>
+
+                            <div className="options">
+                                {question.options.map((option, index) => (
+                                    <div
+                                        key={index}
+                                        className={`option ${userAnswer === index ? 'selected' : ''}`}
+                                        onClick={() => handleAnswer(index)}
+                                    >
+                                        <div className="option-letter">
+                                            {String.fromCharCode(65 + index)}.
+                                        </div>
+                                        <div className="option-text">{option}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="navigation">
                             <button 
-                                className="btn" 
-                                onClick={handleNext}
+                                className="btn btn-secondary" 
+                                onClick={handlePrevious}
+                                disabled={currentQuestion === 0}
                             >
-                                Next →
+                                ← Previous
                             </button>
-                        )}
+                            
+                            {currentQuestion === selectedExam.questions.length - 1 ? (
+                                <button 
+                                    className="btn" 
+                                    onClick={handleSubmit}
+                                    style={{background: 'linear-gradient(135deg, #4caf50 0%, #66bb6a 100%)'}}
+                                >
+                                    Submit Exam
+                                </button>
+                            ) : (
+                                <button 
+                                    className="btn" 
+                                    onClick={handleNext}
+                                >
+                                    Next →
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
-    }
+            );
+        }
 
-    ReactDOM.render(<App />, document.getElementById('root'));
-</script>
-```
-
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
