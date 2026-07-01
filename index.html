@@ -1,424 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certified Lean Practitioner Exam | Kaizen Academy</title>
-    <link rel="icon" type="image/x-icon" href="https://practitioner.kaizenacademy.education/Tcia.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Certified Lean Practitioner Exam | Kaizen Academy</title>
+<link rel="icon" type="image/x-icon" href="http://practitioner.kaizenacademy.education/Tcia.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #333;
-            line-height: 1.6;
-        }
+  :root {
+    --yellow: #ffd559;
+    --yellow-dark: #e6be3e;
+    --yellow-soft: rgba(255,213,89,0.08);
+    --yellow-border: rgba(255,213,89,0.25);
+    --black: #0d0d0d;
+    --dark: #1a1a1a;
+    --mid: #2e2e2e;
+    --charcoal: #36414D;
+    --grey: #8a8a8a;
+    --grey-light: #c4c4c4;
+    --light: #f5f5f0;
+    --light-2: #ebebe5;
+    --cream: #faf9f4;
+    --white: #ffffff;
+    --border: #e5e5e0;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 1px 3px rgba(13,13,13,0.08);
+    --shadow-md: 0 8px 24px rgba(13,13,13,0.10);
+  }
 
-        .header {
-            background: #000;
-            color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+  html { text-wrap: pretty; }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+  body {
+    font-family: var(--font-body);
+    background: var(--light);
+    color: var(--charcoal);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffd559;
-        }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; color: var(--black); }
 
-        .tagline {
-            font-size: 12px;
-            color: #999;
-            margin-top: 5px;
-        }
+  /* ─── HEADER (partial pattern — inject via assets/js/partials.js) ─── */
+  .ka-header { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 2px solid var(--yellow); }
+  .ka-header__bar { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .ka-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
+  .ka-logo img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--yellow); object-fit: cover; }
+  .ka-logo__text { display: flex; flex-direction: column; line-height: 1; }
+  .ka-logo__name { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--white); letter-spacing: -0.02em; }
+  .ka-logo__name span { color: var(--yellow); }
+  .ka-logo__tagline { font-size: 0.62rem; font-weight: 300; color: var(--grey); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; font-family: var(--font-body); }
+  .ka-nav { display: flex; align-items: center; gap: 0.25rem; }
+  .ka-nav a { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: #ccc; text-decoration: none; padding: 0.45rem 0.85rem; border-radius: 6px; transition: color var(--transition), background var(--transition); white-space: nowrap; }
+  .ka-nav a:hover { color: var(--yellow); background: rgba(255,213,89,0.08); }
+  .ka-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.4rem; background: none; border: none; }
+  .ka-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+  .ka-mobile-nav { display: none; flex-direction: column; background: var(--dark); border-top: 1px solid var(--mid); padding: 1rem 2rem 1.5rem; gap: 0.25rem; }
+  .ka-mobile-nav a { font-size: 0.9rem; font-weight: 500; color: #ccc; text-decoration: none; padding: 0.65rem 0; border-bottom: 1px solid var(--mid); }
+  .ka-mobile-nav a:last-child { border-bottom: none; }
+  .ka-mobile-nav.open { display: flex; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  /* ─── MAIN ─── */
+  .ka-main { flex: 1; max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 4rem; width: 100%; }
 
-        .hero {
-            background: #fff;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            border-top: 5px solid #ffd559;
-        }
+  /* Eyebrow pill */
+  .eyebrow { display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; border-radius: 999px; padding: 0.3rem 0.85rem; margin-bottom: 1rem; }
+  .eyebrow--dark { color: var(--yellow); border: 1px solid var(--yellow-border); background: var(--yellow-soft); }
 
-        .hero h1 {
-            color: #1a1a1a;
-            font-size: 36px;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
+  /* Hero card */
+  .hero { background: var(--white); border-radius: 12px; padding: 2.5rem; margin-bottom: 1.75rem; box-shadow: var(--shadow-md); border-top: 5px solid var(--yellow); }
+  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.75rem; line-height: 1.15; }
+  .hero p.lead { color: var(--charcoal); font-size: 1.02rem; max-width: 60ch; margin-top: 0.5rem; }
 
-        .hero .subtitle {
-            color: #ffd559;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+  /* Exam details */
+  .exam-details { background: var(--cream); border-left: 3px solid var(--yellow); border-radius: 0 8px 8px 0; padding: 1.5rem 1.75rem; margin: 1.75rem 0; }
+  .exam-details h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; }
+  .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.1rem; }
+  .detail-item { display: flex; align-items: center; gap: 0.75rem; }
+  .detail-icon { background: var(--yellow); color: var(--black); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .detail-icon svg { width: 20px; height: 20px; }
+  .detail-label { font-size: 0.72rem; color: var(--grey); display: block; text-transform: uppercase; letter-spacing: 0.06em; }
+  .detail-value { font-weight: 700; font-size: 0.98rem; color: var(--black); font-family: var(--font-display); }
 
-        .hero p {
-            color: #555;
-            font-size: 17px;
-            margin-bottom: 25px;
-        }
+  /* Note / alert boxes */
+  .note { display: flex; gap: 0.85rem; align-items: flex-start; border-radius: 8px; padding: 1.1rem 1.25rem; margin: 1.25rem 0; }
+  .note svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+  .note strong { font-weight: 700; }
+  .note--important { background: var(--yellow-soft); border: 1px solid var(--yellow-border); color: var(--charcoal); }
+  .note--important svg { color: var(--yellow-dark); }
+  .note--important strong { color: var(--black); }
+  .note--alert { background: var(--black); color: var(--grey-light); }
+  .note--alert svg { color: var(--yellow); }
+  .note--alert strong { color: var(--yellow); }
 
-        .exam-details {
-            background: #f9f9f9;
-            border-left: 4px solid #ffd559;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 6px;
-        }
+  /* Instructions */
+  .instructions { background: var(--white); border-radius: 12px; padding: 2rem; margin-bottom: 1.75rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+  .instructions h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1.25rem; border-bottom: 2px solid var(--yellow); padding-bottom: 0.6rem; }
+  .instructions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .instruction-box { background: var(--light); border-radius: 8px; padding: 1.25rem 1.4rem; }
+  .instruction-box h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .instruction-box ul { list-style: none; }
+  .instruction-box li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; color: var(--charcoal); font-size: 0.88rem; }
+  .instruction-box li::before { content: "✓"; position: absolute; left: 0; color: var(--yellow-dark); font-weight: 700; }
 
-        .exam-details h3 {
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
+  /* Quote */
+  .quote { font-style: italic; color: var(--charcoal); text-align: center; padding: 1.5rem; font-size: 1.02rem; border-left: 3px solid var(--yellow); background: var(--cream); border-radius: 0 8px 8px 0; margin: 1.75rem 0; }
+  .quote-author { display: block; margin-top: 0.6rem; font-size: 0.85rem; color: var(--grey); font-style: normal; font-family: var(--font-body); }
 
-        .detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
+  /* Exam container */
+  .exam-container { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); min-height: 900px; }
+  .exam-container h2 { font-size: 1.4rem; font-weight: 800; text-align: center; border-bottom: 2px solid var(--yellow); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .exam-wrapper { display: flex; justify-content: center; margin-top: 1.25rem; }
 
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+  /* ─── FOOTER (partial pattern) ─── */
+  .ka-footer { background: var(--black); border-top: 3px solid var(--yellow); color: #ccc; font-family: var(--font-body); }
+  .ka-footer__top { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .ka-footer__logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+  .ka-footer__logo img { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--yellow); }
+  .ka-footer__logo-name { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; color: var(--white); }
+  .ka-footer__logo-name span { color: var(--yellow); }
+  .ka-footer__links { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; font-size: 0.82rem; }
+  .ka-footer__links a { color: var(--grey); text-decoration: none; }
+  .ka-footer__links a:hover { color: var(--yellow); }
+  .ka-footer__bottom { max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem 1.75rem; border-top: 1px solid var(--mid); font-size: 0.78rem; color: var(--grey); text-align: center; }
+  .ka-footer__bottom a { color: var(--yellow); text-decoration: none; }
 
-        .detail-icon {
-            background: #ffd559;
-            color: #1a1a1a;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-            font-size: 18px;
-        }
-
-        .detail-text {
-            color: #333;
-        }
-
-        .detail-label {
-            font-size: 12px;
-            color: #666;
-            display: block;
-        }
-
-        .detail-value {
-            font-weight: bold;
-            font-size: 16px;
-            color: #1a1a1a;
-        }
-
-        .instructions {
-            background: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        .instructions h2 {
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            font-size: 24px;
-            border-bottom: 2px solid #ffd559;
-            padding-bottom: 10px;
-        }
-
-        .instructions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .instruction-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 6px;
-        }
-
-        .instruction-box h4 {
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .instruction-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .instruction-box li {
-            padding: 6px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-            font-size: 14px;
-        }
-
-        .instruction-box li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #ffd559;
-            font-weight: bold;
-        }
-
-        .exam-container {
-            background: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            min-height: 900px;
-        }
-
-        .exam-container h2 {
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-            border-bottom: 2px solid #ffd559;
-            padding-bottom: 15px;
-        }
-
-        .exam-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .footer {
-            background: #000;
-            color: #999;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-
-        .footer a {
-            color: #ffd559;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .important-note {
-            background: #fff3cd;
-            border: 1px solid #ffd559;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #856404;
-        }
-
-        .important-note strong {
-            color: #1a1a1a;
-        }
-
-        .alert-box {
-            background: #ffe5e5;
-            border: 1px solid #ff6b6b;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #c92a2a;
-        }
-
-        .alert-box strong {
-            color: #c92a2a;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #666;
-            text-align: center;
-            padding: 20px;
-            font-size: 16px;
-            border-left: 4px solid #ffd559;
-            background: #f9f9f9;
-            margin: 20px 0;
-        }
-
-        .quote-author {
-            display: block;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #999;
-            font-style: normal;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .hero {
-                padding: 25px;
-            }
-
-            .instructions, .exam-container {
-                padding: 20px;
-            }
-
-            .detail-grid, .instructions-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  @media (max-width: 768px) {
+    .ka-nav, .ka-header__cta { display: none; }
+    .ka-hamburger { display: flex; }
+    .hero { padding: 1.75rem; }
+    .instructions, .exam-container { padding: 1.5rem; }
+    .ka-footer__top { flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <div>
-                <div class="logo">KAIZEN ACADEMY</div>
-                <div class="tagline">The Continuous Improvement Academy</div>
-            </div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="ka-header">
+  <div class="ka-header__bar">
+    <a href="/" class="ka-logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Flogo_round.png?alt=media&token=5da7babb-b626-4f31-83b6-2075fa0be3bf" alt="Kaizen Academy Logo" />
+      <div class="ka-logo__text">
+        <span class="ka-logo__name">Kaizen <span>Academy</span></span>
+        <span class="ka-logo__tagline">Continuous Improvement</span>
+      </div>
+    </a>
+    <nav class="ka-nav">
+      <a href="https://academy.continuousimprovement.education/p/certified-lean-practitioner-training-bundle">Certification</a>
+      <a href="https://academy.continuousimprovement.education/l/dashboard">Dashboard</a>
+    </nav>
+    <button class="ka-hamburger" id="kaHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="ka-mobile-nav" id="kaMobileNav">
+    <a href="https://academy.continuousimprovement.education/p/certified-lean-practitioner-training-bundle">Certification</a>
+    <a href="https://academy.continuousimprovement.education/l/dashboard">Dashboard</a>
+  </nav>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main class="ka-main">
+
+  <div class="hero">
+    <div class="eyebrow eyebrow--dark" style="color:#36414D;background:transparent;border:1px solid #e5e5e0;">Final Assessment</div>
+    <h1>Certified Lean Practitioner Examination</h1>
+    <p class="lead">Congratulations on completing the learning modules and project coaching. This rigorous examination validates your mastery of lean principles, the Toyota Production System, Value Stream Mapping and Scientific Problem Solving.</p>
+
+    <div class="exam-details">
+      <h3>Exam Overview</h3>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M9 9h1"/></svg>
+          </div>
+          <div>
+            <span class="detail-label">Questions</span>
+            <span class="detail-value">180 multiple choice</span>
+          </div>
         </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div>
+            <span class="detail-label">Time Limit</span>
+            <span class="detail-value">2 hours</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          </div>
+          <div>
+            <span class="detail-label">Passing Score</span>
+            <span class="detail-value">70% (126/180)</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+          </div>
+          <div>
+            <span class="detail-label">Attempts Included</span>
+            <span class="detail-value">2 attempts</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <div class="hero">
-            <h1>Certified Lean Practitioner Examination</h1>
-            <div class="subtitle">Welcome to Your Final Assessment</div>
-            <p>Congratulations on completing the learning modules and project coaching! This rigorous examination validates your mastery of Lean principles, the Toyota Production System, Value Stream Mapping, and Scientific Problem Solving.</p>
-            
-            <div class="exam-details">
-                <h3>Exam Overview</h3>
-                <div class="detail-grid">
-                    <div class="detail-item">
-                        <div class="detail-icon">📝</div>
-                        <div class="detail-text">
-                            <span class="detail-label">Questions</span>
-                            <span class="detail-value">180 Multiple Choice</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">⏱</div>
-                        <div class="detail-text">
-                            <span class="detail-label">Time Limit</span>
-                            <span class="detail-value">2 Hours</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">🎯</div>
-                        <div class="detail-text">
-                            <span class="detail-label">Passing Score</span>
-                            <span class="detail-value">70% (126/180)</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">🔄</div>
-                        <div class="detail-text">
-                            <span class="detail-label">Attempts Included</span>
-                            <span class="detail-value">2 Attempts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alert-box">
-                <strong>⚠️ Retake Policy:</strong> You have 2 attempts included with your program. If additional attempts are needed, an exam voucher must be purchased. Wait 48 hours between attempts.
-            </div>
-
-            <div class="important-note">
-                <strong>📌 Important:</strong> Once started, the exam cannot be paused. The 2-hour timer runs continuously. Ensure you have a stable internet connection and quiet environment before beginning.
-            </div>
-        </div>
-
-
-
-        <div class="instructions">
-            <h2>Before You Begin</h2>
-            <div class="instructions-grid">
-                <div class="instruction-box">
-                    <h4>Technical Requirements</h4>
-                    <ul>
-                        <li>Stable internet connection</li>
-                        <li>Modern web browser</li>
-                        <li>Quiet environment</li>
-                        <li>Calculator (if needed)</li>
-                    </ul>
-                </div>
-                <div class="instruction-box">
-                    <h4>Exam Rules</h4>
-                    <ul>
-                        <li>Open-book exam allowed</li>
-                        <li>No AI tools permitted</li>
-                        <li>Complete independently</li>
-                        <li>One correct answer per question</li>
-                    </ul>
-                </div>
-                <div class="instruction-box">
-                    <h4>During the Exam</h4>
-                    <ul>
-                        <li>Navigate forward/backward</li>
-                        <li>Flag questions to review</li>
-                        <li>Answers auto-save</li>
-                        <li>Results provided immediately</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="quote">
-            "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice."
-            <span class="quote-author">— Brian Herbert</span>
-        </div>
-
-        <div class="exam-container">
-            <h2>Begin Your Certification Exam</h2>
-            <div class="exam-wrapper">
-                <script src="https://www.classmarker.com/public/js/embed-classmarker-1.0.0.js?quiz=qfn68dc5f87b7035&nocache=1" data-quiz="qfn68dc5f87b7035" data-width="700" data-height="800"></script>
-            </div>
-        </div>
+    <div class="note note--alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <div><strong>Retake policy:</strong> Two attempts are included with your programme. If you need an additional attempt, an exam voucher must be purchased. Allow 48 hours between attempts.</div>
     </div>
 
-    <div class="footer">
-        <p><strong>KAIZEN ACADEMY PTY LTD</strong></p>
-        <p>The Continuous Improvement Academy</p>
-        <p style="margin-top: 15px;">
-            <a href="https://academy.continuousimprovement.education">academy.continuousimprovement.education</a> | 
-            <a href="mailto:learn@continuousimprovement.education">learn@continuousimprovement.education</a>
-        </p>
-        <p style="margin-top: 10px;">Phone: (+61) 473-649-237</p>
-        <p style="margin-top: 15px; font-size: 14px;">
-            Empowering People • Driving Excellence • Always Improving
-        </p>
-        <p style="margin-top: 10px; font-size: 12px; color: #666;">
-            © 2024 Kaizen Academy Pty Ltd. All rights reserved.
-        </p>
+    <div class="note note--important">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>
+      <div><strong>Important:</strong> Once started, the exam cannot be paused. The two-hour timer runs continuously. Confirm a stable internet connection and a quiet environment before beginning.</div>
     </div>
+  </div>
+
+  <div class="instructions">
+    <h2>Before You Begin</h2>
+    <div class="instructions-grid">
+      <div class="instruction-box">
+        <h4>Technical Requirements</h4>
+        <ul>
+          <li>Stable internet connection</li>
+          <li>Modern web browser</li>
+          <li>Quiet environment</li>
+          <li>Calculator, if needed</li>
+        </ul>
+      </div>
+      <div class="instruction-box">
+        <h4>Exam Rules</h4>
+        <ul>
+          <li>Open-book exam allowed</li>
+          <li>No AI tools permitted</li>
+          <li>Complete independently</li>
+          <li>One correct answer per question</li>
+        </ul>
+      </div>
+      <div class="instruction-box">
+        <h4>During the Exam</h4>
+        <ul>
+          <li>Navigate forward and backward</li>
+          <li>Flag questions to review</li>
+          <li>Answers save automatically</li>
+          <li>Results provided immediately</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice."
+    <span class="quote-author">— Brian Herbert</span>
+  </div>
+
+  <div class="exam-container">
+    <h2>Begin Your Certification Exam</h2>
+    <div class="exam-wrapper">
+      <script src="https://www.classmarker.com/public/js/embed-classmarker-1.0.0.js?quiz=qfn68dc5f87b7035&nocache=1" data-quiz="qfn68dc5f87b7035" data-width="700" data-height="800"></script>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ka-footer">
+  <div class="ka-footer__top">
+    <a href="/" class="ka-footer__logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Flogo_round.png?alt=media&token=5da7babb-b626-4f31-83b6-2075fa0be3bf" alt="Kaizen Academy" />
+      <span class="ka-footer__logo-name">Kaizen <span>Academy</span></span>
+    </a>
+    <div class="ka-footer__links">
+      <a href="https://academy.continuousimprovement.education">academy.continuousimprovement.education</a>
+      <a href="mailto:learn@continuousimprovement.education">learn@continuousimprovement.education</a>
+    </div>
+  </div>
+  <div class="ka-footer__bottom">
+    Kaizen Academy Pty Ltd · Melbourne, Australia · ABN 44 682 421 745<br />
+    © <span id="kaYear"></span> Kaizen Academy Pty Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('kaHamburger');
+  const nav = document.getElementById('kaMobileNav');
+  btn.addEventListener('click', () => nav.classList.toggle('open'));
+  document.getElementById('kaYear').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
