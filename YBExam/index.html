@@ -649,9 +649,9 @@
       {
         id: 1,
         title: "Mock Exam 1",
-        description: "60 questions covering all five DMAIC phases — a complete simulation of the IASSC Yellow Belt exam format.",
+        description: "60 questions covering Define, Measure and Control — aligned to the IASSC Yellow Belt Body of Knowledge.",
         questions: [
-          // Define (1–15)
+          // Define (1–20)
           { q:"What does DMAIC stand for?", options:["Define, Measure, Analyze, Implement, Control","Define, Measure, Analyze, Improve, Control","Design, Measure, Analyze, Improve, Create","Define, Monitor, Analyze, Improve, Control"], correct:1, phase:"Define" },
           { q:"VOC stands for:", options:["Velocity of Commerce","Voice of the Company","Voice of the Customer","Variation of the Concept"], correct:2, phase:"Define" },
           { q:"CTQ stands for:", options:["Critical to Quality","Customer to Quality","Cost to Quality","Control to Quality"], correct:0, phase:"Define" },
@@ -667,7 +667,12 @@
           { q:"Tangible COPQ costs typically range from what percent of sales revenue?", options:["1–3%","4–10%","15–20%","30–40%"], correct:1, phase:"Define" },
           { q:"Which of the following is an example of External COPQ?", options:["Inspection costs","Quarantined inventory","Warranty costs","Quality control department costs"], correct:2, phase:"Define" },
           { q:"The goal of Six Sigma is to focus on:", options:["The trivial many","The vital few","All variables equally","Only cost reduction"], correct:1, phase:"Define" },
-          // Measure (16–30)
+          { q:"What does the Pareto Principle state?", options:["50% of problems come from 50% of causes","80% of problems come from 20% of causes","20% of problems come from 80% of causes","All causes contribute equally"], correct:1, phase:"Define" },
+          { q:"A Pareto chart is:", options:["A line graph showing trends","A bar chart with bars arranged in descending order","A pie chart showing percentages","A scatter plot showing correlation"], correct:1, phase:"Define" },
+          { q:"How many elements of waste does Lean identify?", options:["3","5","7","9"], correct:2, phase:"Define" },
+          { q:"The 7 wastes of Lean include:", options:["Overproduction, Waiting, Transportation, Over-processing, Inventory, Motion, Defects","Time, Cost, Quality, Scope, Risk, Resources, Communication","People, Process, Technology, Data, Strategy, Culture, Leadership","Define, Measure, Analyze, Improve, Control, Sustain, Optimize"], correct:0, phase:"Define" },
+          { q:"The 5S methodology includes:", options:["Sort, Set in Order, Shine, Standardize, Sustain","Safety, Security, Systems, Standards, Support","Start, Stop, Study, Standardize, Sustain","Scope, Schedule, Staff, Strategy, Success"], correct:0, phase:"Define" },
+          // Measure (21–46)
           { q:"MSA stands for:", options:["Measurement System Analysis","Mean Standard Assessment","Multiple Sample Analysis","Measure, Stabilize, Analyze"], correct:0, phase:"Measure" },
           { q:"In MSA, what does repeatability refer to?", options:["Variation between operators","Variation within the same operator","Variation over time","Variation between samples"], correct:1, phase:"Measure" },
           { q:"Reproducibility in MSA refers to:", options:["Variation within the same operator","Variation between different operators","Variation in the equipment","Variation in the sample"], correct:1, phase:"Measure" },
@@ -683,47 +688,40 @@
           { q:"A process is considered capable when Cpk is:", options:["Less than 1.0","Equal to 1.0","Greater than or equal to 1.33","Greater than or equal to 2.0"], correct:2, phase:"Measure" },
           { q:"LSL and USL stand for:", options:["Lower Sigma Level and Upper Sigma Level","Lower Specification Limit and Upper Specification Limit","Lower Sample Limit and Upper Sample Limit","Lower Standard Limit and Upper Standard Limit"], correct:1, phase:"Measure" },
           { q:"A stable process means:", options:["The process has no variation","The process is predictable over time","The process meets all specifications","The process has high capability"], correct:1, phase:"Measure" },
-          // Analyze (31–45)
-          { q:"The primary goal of the Analyze phase is to:", options:["Collect data","Implement solutions","Identify root causes","Create control plans"], correct:2, phase:"Analyze" },
-          { q:"A Fishbone diagram is also known as:", options:["Pareto chart","Cause and Effect diagram","Control chart","Histogram"], correct:1, phase:"Analyze" },
-          { q:"The main categories in a Fishbone diagram typically include:", options:["Cost, Quality, Time, Scope","Man, Machine, Method, Material, Measurement, Environment","Define, Measure, Analyze, Improve, Control","Plan, Do, Check, Act"], correct:1, phase:"Analyze" },
-          { q:"What does the Pareto Principle state?", options:["50% of problems come from 50% of causes","80% of problems come from 20% of causes","20% of problems come from 80% of causes","All causes contribute equally"], correct:1, phase:"Analyze" },
-          { q:"A Pareto chart is:", options:["A line graph showing trends","A bar chart with bars arranged in descending order","A pie chart showing percentages","A scatter plot showing correlation"], correct:1, phase:"Analyze" },
-          { q:"The mean is:", options:["The most frequently occurring value","The middle value when data is sorted","The arithmetic average","The range of values"], correct:2, phase:"Analyze" },
-          { q:"The median is:", options:["The arithmetic average","The middle value when data is sorted","The most frequently occurring value","The difference between highest and lowest values"], correct:1, phase:"Analyze" },
-          { q:"The mode is:", options:["The arithmetic average","The middle value","The most frequently occurring value","The standard deviation"], correct:2, phase:"Analyze" },
-          { q:"Standard deviation measures:", options:["Central tendency","Variation or spread of data","The average value","Process capability"], correct:1, phase:"Analyze" },
-          { q:"A histogram displays:", options:["Data over time","The relationship between two variables","The frequency distribution of data","Process stability"], correct:2, phase:"Analyze" },
-          { q:"A scatter diagram is used to:", options:["Show data over time","Show the relationship between two variables","Show frequency distribution","Show process control"], correct:1, phase:"Analyze" },
-          { q:"Correlation measures:", options:["Causation between variables","The strength of relationship between two variables","Process capability","Time trends"], correct:1, phase:"Analyze" },
-          { q:"A correlation coefficient of +1 indicates:", options:["No correlation","Perfect negative correlation","Perfect positive correlation","Weak correlation"], correct:2, phase:"Analyze" },
-          { q:"Statistical significance is typically determined using:", options:["P-value","Mean","Median","Mode"], correct:0, phase:"Analyze" },
-          { q:"A p-value less than 0.05 typically indicates:", options:["No statistical significance","Statistical significance","Perfect correlation","Process capability"], correct:1, phase:"Analyze" },
-          // Improve (46–53)
-          { q:"The Improve phase focuses on:", options:["Identifying root causes","Collecting baseline data","Developing and implementing solutions","Creating measurement systems"], correct:2, phase:"Improve" },
-          { q:"Brainstorming is used to:", options:["Calculate statistics","Generate ideas and solutions","Measure process capability","Control processes"], correct:1, phase:"Improve" },
-          { q:"Pilot testing is important because it:", options:["Eliminates all risk","Reduces cost of full implementation","Tests solutions on a small scale before full implementation","Is required by IASSC"], correct:2, phase:"Improve" },
-          { q:"What does Kaizen mean?", options:["Continuous improvement","Quality control","Process mapping","Statistical analysis"], correct:0, phase:"Improve" },
-          { q:"Poka-Yoke means:", options:["Process improvement","Mistake proofing","Quality assurance","Cost reduction"], correct:1, phase:"Improve" },
-          { q:"A solution that eliminates the root cause is:", options:["Corrective action","Preventive action","Detective action","Reactive action"], correct:1, phase:"Improve" },
-          { q:"Cost-benefit analysis is used to:", options:["Identify root causes","Evaluate the financial impact of solutions","Measure process capability","Create control charts"], correct:1, phase:"Improve" },
-          { q:"Quick wins are:", options:["Long-term strategic improvements","Simple, fast improvements with immediate impact","Expensive solutions","Complex statistical solutions"], correct:1, phase:"Improve" },
-          // Control (54–60)
+          { q:"A Fishbone diagram is also known as:", options:["Pareto chart","Cause and Effect diagram","Control chart","Histogram"], correct:1, phase:"Measure" },
+          { q:"The main categories in a Fishbone diagram typically include:", options:["Cost, Quality, Time, Scope","Man, Machine, Method, Material, Measurement, Environment","Define, Measure, Analyze, Improve, Control","Plan, Do, Check, Act"], correct:1, phase:"Measure" },
+          { q:"The mean is:", options:["The most frequently occurring value","The middle value when data is sorted","The arithmetic average","The range of values"], correct:2, phase:"Measure" },
+          { q:"The median is:", options:["The arithmetic average","The middle value when data is sorted","The most frequently occurring value","The difference between highest and lowest values"], correct:1, phase:"Measure" },
+          { q:"The mode is:", options:["The arithmetic average","The middle value","The most frequently occurring value","The standard deviation"], correct:2, phase:"Measure" },
+          { q:"Standard deviation measures:", options:["Central tendency","Variation or spread of data","The average value","Process capability"], correct:1, phase:"Measure" },
+          { q:"A histogram displays:", options:["Data over time","The relationship between two variables","The frequency distribution of data","Process stability"], correct:2, phase:"Measure" },
+          { q:"A scatter diagram is used to:", options:["Show data over time","Show the relationship between two variables","Show frequency distribution","Show process control"], correct:1, phase:"Measure" },
+          { q:"Correlation measures:", options:["Causation between variables","The strength of relationship between two variables","Process capability","Time trends"], correct:1, phase:"Measure" },
+          { q:"A correlation coefficient of +1 indicates:", options:["No correlation","Perfect negative correlation","Perfect positive correlation","Weak correlation"], correct:2, phase:"Measure" },
+          { q:"Brainstorming is used to:", options:["Calculate statistics","Generate ideas and solutions","Measure process capability","Control processes"], correct:1, phase:"Measure" },
+          // Control (47–60)
+          { q:"What does Kaizen mean?", options:["Continuous improvement","Quality control","Process mapping","Statistical analysis"], correct:0, phase:"Control" },
+          { q:"Poka-Yoke means:", options:["Process improvement","Mistake proofing","Quality assurance","Cost reduction"], correct:1, phase:"Control" },
+          { q:"Cost-benefit analysis is used to:", options:["Identify root causes","Evaluate the financial impact of solutions","Measure process capability","Create control charts"], correct:1, phase:"Control" },
           { q:"The purpose of the Control phase is to:", options:["Identify problems","Analyse root causes","Sustain improvements","Collect data"], correct:2, phase:"Control" },
           { q:"A Control Plan includes:", options:["Problem statement","Monitoring methods and reaction plans","Project charter","Cost-benefit analysis"], correct:1, phase:"Control" },
           { q:"Control charts are used to:", options:["Monitor process stability over time","Calculate process capability","Identify root causes","Brainstorm solutions"], correct:0, phase:"Control" },
-          { q:"How many elements of waste does Lean identify?", options:["3","5","7","9"], correct:2, phase:"Control" },
-          { q:"The 7 wastes of Lean include:", options:["Overproduction, Waiting, Transportation, Over-processing, Inventory, Motion, Defects","Time, Cost, Quality, Scope, Risk, Resources, Communication","People, Process, Technology, Data, Strategy, Culture, Leadership","Define, Measure, Analyze, Improve, Control, Sustain, Optimize"], correct:0, phase:"Control" },
-          { q:"The 5S methodology includes:", options:["Sort, Set in Order, Shine, Standardize, Sustain","Safety, Security, Systems, Standards, Support","Start, Stop, Study, Standardize, Sustain","Scope, Schedule, Staff, Strategy, Success"], correct:0, phase:"Control" },
-          { q:"Visual Factory means:", options:["A factory that produces visual products","Making work flow issues quickly noticeable","Using video surveillance","Creating process maps"], correct:1, phase:"Control" }
+          { q:"Visual Factory means:", options:["A factory that produces visual products","Making work flow issues quickly noticeable","Using video surveillance","Creating process maps"], correct:1, phase:"Control" },
+          { q:"Kanban is best described as:", options:["A statistical control test","A visual signal that triggers the movement or production of work","An inspection checklist","A section of the project charter"], correct:1, phase:"Control" },
+          { q:"Which of the following is an example of poka-yoke (mistake proofing)?", options:["Increasing inspection staff","A form that cannot be submitted until all required fields are completed","Running larger batches","Adding a final check at the end of the line"], correct:1, phase:"Control" },
+          { q:"In a Control Plan, the Response Plan defines:", options:["The project's business case","Actions to take when a monitored measure signals an out-of-control condition","The training schedule for new belts","The list of project stakeholders"], correct:1, phase:"Control" },
+          { q:"The best way to prevent an improved process from drifting back to old performance is to:", options:["Remove all process documentation","Monitor key metrics against control limits and follow the Control Plan","Audit the process once a year","Stop collecting data"], correct:1, phase:"Control" },
+          { q:"Documented standard work in the Control phase ensures:", options:["Operators choose their own preferred methods","Everyone performs the process the same, agreed best-known way","The process no longer needs measurement","Variation disappears from the data"], correct:1, phase:"Control" },
+          { q:"After a project closes, the Control Plan is owned and maintained by:", options:["The project Champion","The Process Owner","The Master Black Belt","The external customer"], correct:1, phase:"Control" },
+          { q:"Sustaining 5S gains (the Sustain step) typically relies on:", options:["Occasional one-off clean-up events","Scheduled audits, visual checks and making the standards habitual","Buying new equipment","Removing the work instructions"], correct:1, phase:"Control" },
         ]
       },
       {
         id: 2,
         title: "Mock Exam 2",
-        description: "60 additional questions exploring edge cases, applied concepts, and deeper DMAIC knowledge across all phases.",
+        description: "60 additional questions covering Define, Measure and Control — aligned to the IASSC Yellow Belt Body of Knowledge.",
         questions: [
-          // Define (1–15)
+          // Define (1–20)
           { q:"What is the primary purpose of the Define phase?", phase:"Define", options:["To implement solutions","To understand and define the problem","To collect data","To analyse root causes"], correct:1 },
           { q:"A Project Charter includes all of the following EXCEPT:", phase:"Define", options:["Problem Statement","Solution implementation steps","Primary and Secondary Metrics","Business Case"], correct:1 },
           { q:"Who is responsible for removing roadblocks and providing resources for a Six Sigma project?", phase:"Define", options:["Green Belt","Black Belt","Champion","Yellow Belt"], correct:2 },
@@ -739,7 +737,12 @@
           { q:"A Master Black Belt's primary role is:", phase:"Define", options:["Working on projects full-time","Providing technical expertise and mentoring","Managing the business","Collecting data"], correct:1 },
           { q:"Which of the following is a Prevention cost in COPQ?", phase:"Define", options:["Warranty","Rework","Error proofing devices","Customer complaints"], correct:2 },
           { q:"Appraisal costs in COPQ include:", phase:"Define", options:["Training programmes","Product inspection and auditing","Scrap and rework","Lost sales"], correct:1 },
-          // Measure (16–30)
+          { q:"Stakeholder analysis identifies:", phase:"Define", options:["Only customers","All parties affected by the project","Only employees","Only suppliers"], correct:1 },
+          { q:"FTY (First Time Yield) is calculated as:", phase:"Define", options:["Units shipped / units ordered","Units passing a step without rework / units entering the step","Total defects / total units","Cycle time / takt time"], correct:1 },
+          { q:"Rolled Throughput Yield (RTY) is:", phase:"Define", options:["The sum of all defects in the process","The product of the first-time yields of all process steps","The yield of the final process step only","1 minus the DPMO"], correct:1 },
+          { q:"Which of the seven wastes is often considered the most serious because it generates the other wastes?", phase:"Define", options:["Waiting","Overproduction","Motion","Correction"], correct:1 },
+          { q:"Lean thinking originated primarily from:", phase:"Define", options:["General Electric in the 1980s","The Toyota Production System","The ISO 9000 quality standards","The Motorola reliability labs"], correct:1 },
+          // Measure (21–46)
           { q:"The primary objective of the Measure phase is to:", phase:"Measure", options:["Implement solutions","Understand current process performance","Identify root causes","Create control plans"], correct:1 },
           { q:"What does Gage R&R assess?", phase:"Measure", options:["Process capability","Measurement system variation","Root causes","Customer satisfaction"], correct:1 },
           { q:"In a measurement system, if Kappa equals 0, it indicates:", phase:"Measure", options:["Excellent measurement system","Poor measurement system","Perfect measurement system","No conclusion can be drawn"], correct:1 },
@@ -755,47 +758,40 @@
           { q:"DPU stands for:", phase:"Measure", options:["Defects Per Unit","Data Processing Unit","Define, Process, Understand","Days Per Unit"], correct:0 },
           { q:"DPMO stands for:", phase:"Measure", options:["Defects Per Million Orders","Defects Per Million Opportunities","Data Points for Measurement Operations","Define, Process, Measure, Operate"], correct:1 },
           { q:"A process that has special cause variation is:", phase:"Measure", options:["Stable","Unstable","Capable","Perfect"], correct:1 },
-          // Analyse (31–45)
-          { q:"Root cause analysis aims to:", phase:"Analyze", options:["Find symptoms of problems","Identify the fundamental reason for a problem","Implement solutions","Create control charts"], correct:1 },
-          { q:"The 5 Whys technique is used to:", phase:"Analyze", options:["Generate solutions","Dig deeper into root causes","Measure process capability","Create process maps"], correct:1 },
-          { q:"In hypothesis testing, the null hypothesis typically states:", phase:"Analyze", options:["There is a significant difference","There is no significant difference","The process is capable","The solution will work"], correct:1 },
-          { q:"Type I error occurs when:", phase:"Analyze", options:["We reject a true null hypothesis","We accept a false null hypothesis","We collect wrong data","We measure incorrectly"], correct:0 },
-          { q:"Type II error occurs when:", phase:"Analyze", options:["We reject a true null hypothesis","We fail to reject a false null hypothesis","We use wrong tools","We analyse incorrectly"], correct:1 },
-          { q:"Range is calculated as:", phase:"Analyze", options:["Maximum value × Minimum value","Maximum value + Minimum value","Maximum value − Minimum value","Maximum value / Minimum value"], correct:2 },
-          { q:"Variance is:", phase:"Analyze", options:["The square root of standard deviation","The square of standard deviation","The same as range","The same as mean"], correct:1 },
-          { q:"A box plot displays:", phase:"Analyze", options:["Median, quartiles, and outliers","Only the mean","Only frequency distribution","Process over time"], correct:0 },
-          { q:"Normal distribution is:", phase:"Analyze", options:["Skewed to the left","Skewed to the right","Bell-shaped and symmetrical","Flat and uniform"], correct:2 },
-          { q:"The Central Limit Theorem states that:", phase:"Analyze", options:["All data is normally distributed","Sample means tend toward normal distribution","Processes are always stable","Variation can be eliminated"], correct:1 },
-          { q:"Stratification is used to:", phase:"Analyze", options:["Combine all data together","Separate data into meaningful groups","Calculate averages","Create control limits"], correct:1 },
-          { q:"A correlation coefficient of −0.9 indicates:", phase:"Analyze", options:["Weak positive correlation","Strong positive correlation","Strong negative correlation","No correlation"], correct:2 },
-          { q:"Correlation does NOT imply:", phase:"Analyze", options:["Relationship","Causation","Association","Pattern"], correct:1 },
-          { q:"ANOVA is used to:", phase:"Analyze", options:["Compare means of two or more groups","Calculate standard deviation","Create process maps","Measure customer satisfaction"], correct:0 },
-          { q:"Chi-square test is used for:", phase:"Analyze", options:["Continuous data analysis","Categorical data analysis","Time series analysis","Process capability"], correct:1 },
-          // Improve (46–53)
-          { q:"Design of Experiments (DOE) is used to:", phase:"Improve", options:["Draw process maps","Systematically test multiple variables","Calculate Cpk","Create control plans"], correct:1 },
-          { q:"Benchmarking involves:", phase:"Improve", options:["Setting lower standards","Comparing performance to best practices","Ignoring competitors","Reducing all costs"], correct:1 },
-          { q:"Force Field Analysis examines:", phase:"Improve", options:["Physical forces only","Forces driving and restraining change","Employee strength","Market forces only"], correct:1 },
-          { q:"Impact-Effort Matrix is used to:", phase:"Improve", options:["Calculate ROI","Prioritise solutions based on impact and effort","Measure time","Analyse data"], correct:1 },
-          { q:"Change management is important because:", phase:"Improve", options:["It eliminates resistance","It helps people adapt to new processes","It is required by Six Sigma","It reduces cost"], correct:1 },
-          { q:"Training is part of which phase?", phase:"Improve", options:["Only Define","Only Improve","Multiple phases","Only Control"], correct:2 },
-          { q:"Stakeholder analysis identifies:", phase:"Improve", options:["Only customers","All parties affected by the project","Only employees","Only suppliers"], correct:1 },
-          { q:"Standard Work means:", phase:"Improve", options:["Documented best practice procedures","Average performance","Minimum requirements","Management directives"], correct:0 },
-          // Control (54–60)
+          { q:"Root cause analysis aims to:", phase:"Measure", options:["Find symptoms of problems","Identify the fundamental reason for a problem","Implement solutions","Create control charts"], correct:1 },
+          { q:"The 5 Whys technique is used to:", phase:"Measure", options:["Generate solutions","Dig deeper into root causes","Measure process capability","Create process maps"], correct:1 },
+          { q:"Range is calculated as:", phase:"Measure", options:["Maximum value × Minimum value","Maximum value + Minimum value","Maximum value − Minimum value","Maximum value / Minimum value"], correct:2 },
+          { q:"Variance is:", phase:"Measure", options:["The square root of standard deviation","The square of standard deviation","The same as range","The same as mean"], correct:1 },
+          { q:"A box plot displays:", phase:"Measure", options:["Median, quartiles, and outliers","Only the mean","Only frequency distribution","Process over time"], correct:0 },
+          { q:"Normal distribution is:", phase:"Measure", options:["Skewed to the left","Skewed to the right","Bell-shaped and symmetrical","Flat and uniform"], correct:2 },
+          { q:"Stratification is used to:", phase:"Measure", options:["Combine all data together","Separate data into meaningful groups","Calculate averages","Create control limits"], correct:1 },
+          { q:"A correlation coefficient of −0.9 indicates:", phase:"Measure", options:["Weak positive correlation","Strong positive correlation","Strong negative correlation","No correlation"], correct:2 },
+          { q:"Correlation does NOT imply:", phase:"Measure", options:["Relationship","Causation","Association","Pattern"], correct:1 },
+          { q:"The Anderson-Darling test is used in Measure to check whether:", phase:"Measure", options:["Two process means are equal","The data follow a normal distribution","The gauges are repeatable","The process is lean"], correct:1 },
+          { q:"A Gage R&R result is generally considered acceptable when the measurement system contributes:", phase:"Measure", options:["Less than 10% of total variation","Between 30% and 50% of total variation","More than 50% of total variation","Exactly 25% of total variation"], correct:0 },
+          // Control (47–60)
+          { q:"Impact-Effort Matrix is used to:", phase:"Control", options:["Calculate ROI","Prioritise solutions based on impact and effort","Measure time","Analyse data"], correct:1 },
+          { q:"Change management is important because:", phase:"Control", options:["It eliminates resistance","It helps people adapt to new processes","It is required by Six Sigma","It reduces cost"], correct:1 },
+          { q:"Training is part of which phase?", phase:"Control", options:["Only Define","Only Improve","Multiple phases","Only Control"], correct:2 },
+          { q:"Standard Work means:", phase:"Control", options:["Documented best practice procedures","Average performance","Minimum requirements","Management directives"], correct:0 },
           { q:"Control charts monitor:", phase:"Control", options:["Project costs","Process performance over time","Customer satisfaction only","Employee attendance"], correct:1 },
           { q:"UCL and LCL in control charts stand for:", phase:"Control", options:["Upper Cost Limit and Lower Cost Limit","Upper Control Limit and Lower Control Limit","Ultimate Capability Level and Lowest Capability Level","Upper Customer Limit and Lower Customer Limit"], correct:1 },
           { q:"A process is out of control when:", phase:"Control", options:["Points fall within control limits","Points fall outside control limits or show non-random patterns","Mean equals target","Capability is high"], correct:1 },
           { q:"Kanban is a Lean tool used for:", phase:"Control", options:["Statistical analysis","Inventory and workflow management","Employee evaluation","Financial planning"], correct:1 },
           { q:"The first 'S' in 5S (Sort/Seiri) means:", phase:"Control", options:["Organise everything","Separate needed from unneeded items","Clean the workspace","Standardise procedures"], correct:1 },
           { q:"Standardise is which 'S' in 5S?", phase:"Control", options:["First","Second","Third","Fourth"], correct:3 },
-          { q:"Response plans in a Control Plan specify:", phase:"Control", options:["How to identify problems","What actions to take when problems occur","How to collect data","Who to blame"], correct:1 }
+          { q:"Response plans in a Control Plan specify:", phase:"Control", options:["How to identify problems","What actions to take when problems occur","How to collect data","Who to blame"], correct:1 },
+          { q:"Kanban supports a pull system by:", phase:"Control", options:["Producing large batches ahead of demand","Signalling upstream to produce or move items only when downstream needs them","Locking the work schedule a year ahead","Replacing standardised work"], correct:1 },
+          { q:"The Response Plan in a Control Plan is triggered when:", phase:"Control", options:["The project charter is signed","A monitored characteristic goes out of control or outside specification","The fiscal year ends","A belt is reassigned"], correct:1 },
+          { q:"In the Control phase, cost-benefit analysis is used to:", phase:"Control", options:["Select the project team","Confirm the improvement's ongoing benefits justify the cost of sustaining it","Choose the measurement sample size","Write the problem statement"], correct:1 },
         ]
       },
       {
         id: 3,
         title: "Mock Exam 3",
-        description: "The final set of 60 questions rounding out comprehensive preparation across all DMAIC phases and Lean concepts.",
+        description: "The final set of 60 questions covering Define, Measure and Control — complete IASSC Yellow Belt exam preparation.",
         questions: [
-          // Define (1–15)
+          // Define (1–20)
           { q:"Six Sigma methodology focuses on:", phase:"Define", options:["Increasing variation","Reducing variation","Ignoring customer needs","Maximising inventory"], correct:1 },
           { q:"The primary metric in a Six Sigma project:", phase:"Define", options:["Measures the main output or Y","Is always financial","Is optional","Measures only time"], correct:0 },
           { q:"Secondary metrics:", phase:"Define", options:["Are more important than primary metrics","Measure additional outputs that may be impacted","Are not necessary","Only measure cost"], correct:1 },
@@ -811,7 +807,12 @@
           { q:"The Define phase ends when:", phase:"Define", options:["Project is implemented","Project charter is approved and team is formed","Data is collected","Root causes are identified"], correct:1 },
           { q:"Archimedes' principle about leverage relates to Six Sigma by:", phase:"Define", options:["Focusing on the vital few for maximum impact","Using heavy tools","Working harder, not smarter","Collecting more data"], correct:0 },
           { q:"CTQ requirements should be:", phase:"Define", options:["Vague and flexible","Specific and measurable","Impossible to achieve","Based on internal opinions only"], correct:1 },
-          // Measure (16–30)
+          { q:"In a Pareto analysis, the vital few are:", phase:"Define", options:["All causes","The most significant contributors","The least significant contributors","Random causes"], correct:1 },
+          { q:"DPU (Defects Per Unit) is calculated as:", phase:"Define", options:["Total units / total defects","Total defects / total units","Defects / opportunities x 1,000,000","Units passed / units entered"], correct:1 },
+          { q:"DPMO is calculated as:", phase:"Define", options:["Defects / units x 100","(Defects / (units x opportunities)) x 1,000,000","Units / defects x 1,000,000","DPU x cycle time"], correct:1 },
+          { q:"A Yellow Belt's typical role in a Six Sigma project is:", phase:"Define", options:["Leading enterprise-wide deployments","Serving as a team member and supporting or leading limited-scope improvements","Approving all project budgets","Designing experiments"], correct:1 },
+          { q:"Which of the seven wastes describes unnecessary movement of materials or products between locations?", phase:"Define", options:["Motion","Conveyance (transportation)","Overprocessing","Inventory"], correct:1 },
+          // Measure (21–46)
           { q:"Common cause variation:", phase:"Measure", options:["Is unpredictable and sporadic","Is inherent in the process","Should be reacted to immediately","Is always assignable"], correct:1 },
           { q:"Special cause variation:", phase:"Measure", options:["Is inherent in the process","Is predictable","Is assignable to specific factors","Cannot be identified"], correct:2 },
           { q:"A process with only common cause variation is:", phase:"Measure", options:["Out of control","In statistical control","Incapable","Defective"], correct:1 },
@@ -827,39 +828,32 @@
           { q:"Six Sigma performance level represents:", phase:"Measure", options:["1,000 defects per million opportunities","6,210 defects per million opportunities","3.4 defects per million opportunities","Zero defects"], correct:2 },
           { q:"The target value in specifications is:", phase:"Measure", options:["Always the midpoint","The ideal or desired value","Not important","Always zero"], correct:1 },
           { q:"Operational definitions ensure:", phase:"Measure", options:["Processes run faster","Everyone measures the same way","Cost reduction","More variation"], correct:1 },
-          // Analyse (31–45)
-          { q:"Data stratification helps:", phase:"Analyze", options:["Combine all variations","Identify patterns by grouping similar data","Eliminate data","Increase sample size"], correct:1 },
-          { q:"Multi-vari analysis examines:", phase:"Analyze", options:["Single variables only","Multiple sources of variation","Only time-based variation","Only spatial variation"], correct:1 },
-          { q:"Positional variation refers to:", phase:"Analyze", options:["Variation over time","Variation within a single unit or batch","Variation between operators","Variation between suppliers"], correct:1 },
-          { q:"Cyclical variation refers to:", phase:"Analyze", options:["Variation within units","Variation over time in a repeating pattern","Random variation","No variation"], correct:1 },
-          { q:"Temporal variation refers to:", phase:"Analyze", options:["Variation within units","Variation over time","Variation between units","Temperature variation"], correct:1 },
-          { q:"Confidence interval provides:", phase:"Analyze", options:["Exact value of the population parameter","Range where population parameter likely falls","Number of samples needed","Control limits"], correct:1 },
-          { q:"Sample size affects:", phase:"Analyze", options:["Only cost","Confidence and precision of estimates","Nothing","Only time"], correct:1 },
-          { q:"Outliers are:", phase:"Analyze", options:["Always measurement errors","Data points significantly different from others","Always special causes","Should always be removed"], correct:1 },
-          { q:"A run chart displays:", phase:"Analyze", options:["Frequency distribution","Data over time","Correlation","Categorical data"], correct:1 },
-          { q:"In a Pareto analysis, the vital few are:", phase:"Analyze", options:["All causes","The most significant contributors","The least significant contributors","Random causes"], correct:1 },
-          { q:"Regression analysis is used to:", phase:"Analyze", options:["Go backward in time","Predict one variable based on another","Count defects","Create process maps"], correct:1 },
-          { q:"R-squared in regression indicates:", phase:"Analyze", options:["Sample size","Proportion of variation explained by the model","Number of variables","Cost savings"], correct:1 },
-          { q:"Residual analysis examines:", phase:"Analyze", options:["Leftover materials","Differences between actual and predicted values","Employee performance","Financial residuals"], correct:1 },
-          { q:"Statistical process control focuses on:", phase:"Analyze", options:["Firefighting","Preventing problems through monitoring","Reacting to every variation","Eliminating all variation"], correct:1 },
-          { q:"Data collection should be:", phase:"Analyze", options:["Random and unplanned","Planned and systematic","Optional","Done only once"], correct:1 },
-          // Improve (46–53)
-          { q:"Solution selection criteria should include:", phase:"Improve", options:["Only cost","Effectiveness, feasibility, cost, and time","Only time","Only ease"], correct:1 },
-          { q:"Failure Mode Effects Analysis (FMEA) in Improve phase:", phase:"Improve", options:["Is not needed","Evaluates potential failures of proposed solutions","Only looks at current process","Replaces pilot testing"], correct:1 },
-          { q:"Implementation plan should include:", phase:"Improve", options:["Only start date","Tasks, responsibilities, timeline, and resources","Only who is responsible","General ideas only"], correct:1 },
-          { q:"Communication during implementation should be:", phase:"Improve", options:["Minimal","Frequent and clear","Only to management","Only at the end"], correct:1 },
-          { q:"Resistance to change can be reduced by:", phase:"Improve", options:["Forcing compliance","Involving stakeholders and communicating benefits","Ignoring concerns","Keeping changes secret"], correct:1 },
-          { q:"Process documentation should:", phase:"Improve", options:["Be as complex as possible","Clearly describe the improved process","Be kept secret","Never be updated"], correct:1 },
-          { q:"Before and after comparison shows:", phase:"Improve", options:["Only current state","Improvement achieved","Nothing useful","Only future state"], correct:1 },
-          { q:"What is the purpose of a pilot test?", phase:"Improve", options:["To eliminate all risk","To test on small scale before full rollout","To delay implementation","To increase cost"], correct:1 },
-          // Control (54–60)
+          { q:"Data stratification helps:", phase:"Measure", options:["Combine all variations","Identify patterns by grouping similar data","Eliminate data","Increase sample size"], correct:1 },
+          { q:"Multi-vari analysis examines:", phase:"Measure", options:["Single variables only","Multiple sources of variation","Only time-based variation","Only spatial variation"], correct:1 },
+          { q:"Positional variation refers to:", phase:"Measure", options:["Variation over time","Variation within a single unit or batch","Variation between operators","Variation between suppliers"], correct:1 },
+          { q:"Cyclical variation refers to:", phase:"Measure", options:["Variation within units","Variation over time in a repeating pattern","Random variation","No variation"], correct:1 },
+          { q:"Temporal variation refers to:", phase:"Measure", options:["Variation within units","Variation over time","Variation between units","Temperature variation"], correct:1 },
+          { q:"Confidence interval provides:", phase:"Measure", options:["Exact value of the population parameter","Range where population parameter likely falls","Number of samples needed","Control limits"], correct:1 },
+          { q:"Sample size affects:", phase:"Measure", options:["Only cost","Confidence and precision of estimates","Nothing","Only time"], correct:1 },
+          { q:"Outliers are:", phase:"Measure", options:["Always measurement errors","Data points significantly different from others","Always special causes","Should always be removed"], correct:1 },
+          { q:"A run chart displays:", phase:"Measure", options:["Frequency distribution","Data over time","Correlation","Categorical data"], correct:1 },
+          { q:"Data collection should be:", phase:"Measure", options:["Random and unplanned","Planned and systematic","Optional","Done only once"], correct:1 },
+          { q:"In an FMEA, a high Severity score means:", phase:"Measure", options:["The failure occurs frequently","The effect of the failure on the customer is serious","The failure is easy to detect","The process is stable"], correct:1 },
+          // Control (47–60)
+          { q:"Statistical process control focuses on:", phase:"Control", options:["Firefighting","Preventing problems through monitoring","Reacting to every variation","Eliminating all variation"], correct:1 },
+          { q:"Solution selection criteria should include:", phase:"Control", options:["Only cost","Effectiveness, feasibility, cost, and time","Only time","Only ease"], correct:1 },
+          { q:"Implementation plan should include:", phase:"Control", options:["Only start date","Tasks, responsibilities, timeline, and resources","Only who is responsible","General ideas only"], correct:1 },
+          { q:"Communication during implementation should be:", phase:"Control", options:["Minimal","Frequent and clear","Only to management","Only at the end"], correct:1 },
+          { q:"Resistance to change can be reduced by:", phase:"Control", options:["Forcing compliance","Involving stakeholders and communicating benefits","Ignoring concerns","Keeping changes secret"], correct:1 },
+          { q:"Process documentation should:", phase:"Control", options:["Be as complex as possible","Clearly describe the improved process","Be kept secret","Never be updated"], correct:1 },
+          { q:"Before and after comparison shows:", phase:"Control", options:["Only current state","Improvement achieved","Nothing useful","Only future state"], correct:1 },
           { q:"Statistical Process Control (SPC) uses:", phase:"Control", options:["Only financial data","Control charts to monitor processes","Only customer surveys","Only supplier data"], correct:1 },
           { q:"A run of 7 consecutive points on one side of the centre line indicates:", phase:"Control", options:["Normal variation","Possible special cause","Perfect process","No concern"], correct:1 },
           { q:"Process capability should be:", phase:"Control", options:["Checked only once","Monitored regularly","Ignored after Control phase","Only measured initially"], correct:1 },
           { q:"Visual management makes:", phase:"Control", options:["Processes more complex","Performance and issues visible at a glance","More paperwork","Processes slower"], correct:1 },
           { q:"Standardised work instructions should be:", phase:"Control", options:["Vague and general","Clear, detailed, and visual","Kept from operators","Written in technical language only"], correct:1 },
           { q:"Project closure includes:", phase:"Control", options:["Only financial review","Documentation, lessons learned, and celebration","Blaming people for problems","Hiding problems"], correct:1 },
-          { q:"Continuous improvement means:", phase:"Control", options:["Making changes constantly without data","Ongoing effort to improve products, services, or processes","Stopping after one project","Only management responsibility"], correct:1 }
+          { q:"Continuous improvement means:", phase:"Control", options:["Making changes constantly without data","Ongoing effort to improve products, services, or processes","Stopping after one project","Only management responsibility"], correct:1 },
         ]
       }
     ];
@@ -870,14 +864,14 @@
       const [selectedExam, setSelectedExam] = useState(null);
       const [currentQ, setCurrentQ] = useState(0);
       const [answers, setAnswers] = useState({});
-      const [timeLeft, setTimeLeft] = useState(3600);
+      const [timeLeft, setTimeLeft] = useState(7200);
       const timerRef = useRef(null);
 
       const startExam = (exam) => {
         setSelectedExam(exam);
         setCurrentQ(0);
         setAnswers({});
-        setTimeLeft(3600);
+        setTimeLeft(7200);
         setView('exam');
       };
 
@@ -886,7 +880,7 @@
         setSelectedExam(null);
         setCurrentQ(0);
         setAnswers({});
-        setTimeLeft(3600);
+        setTimeLeft(7200);
         setView('home');
       };
 
@@ -894,7 +888,7 @@
         clearInterval(timerRef.current);
         setCurrentQ(0);
         setAnswers({});
-        setTimeLeft(3600);
+        setTimeLeft(7200);
         setView('exam');
       };
 
@@ -918,13 +912,13 @@
       const fmtTime = (s) => `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
 
       const calcScore = () => {
-        const phases = { Define:{ c:0,t:0 }, Measure:{ c:0,t:0 }, Analyze:{ c:0,t:0 }, Improve:{ c:0,t:0 }, Control:{ c:0,t:0 } };
+        const phases = { Define:{ c:0,t:0 }, Measure:{ c:0,t:0 }, Control:{ c:0,t:0 } };
         let correct = 0;
         selectedExam.questions.forEach((q, i) => {
-          if (q.phase) { phases[q.phase].t++; }
+          if (q.phase && phases[q.phase]) { phases[q.phase].t++; }
           if (answers[i] === q.correct) {
             correct++;
-            if (q.phase) phases[q.phase].c++;
+            if (q.phase && phases[q.phase]) phases[q.phase].c++;
           }
         });
         return { correct, total: selectedExam.questions.length, phases };
@@ -943,7 +937,7 @@
               <div className="hero__eyebrow">IASSC Yellow Belt Preparation</div>
               <h1 className="hero__title">Mock Exam <span>Suite</span></h1>
               <p className="hero__lead">
-                180 questions across three full-length practice exams — 60 minutes each, covering all five DMAIC phases.
+                180 questions across three full-length practice exams — 120 minutes each, covering the full IASSC Yellow Belt Body of Knowledge: Define, Measure and Control.
               </p>
               <p className="hero__meta">
                 <span>60 questions per exam</span>
